@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (<>
-        <div>
-            <div>
+        <div className="bg-gray-700 text-white flex justify-between items-center p-3">
+            <div className="text-2xl font-bold">
                 Logo
             </div>
-            <div>
-                <Link to="/">Home</Link>
-                <Link to="/intraction">Intractions</Link>
+            <div className="flex gap-5 font-semibold">
+                <Link to="/" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Home</Link>
+                <Link to="/intraction" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Intractions</Link>
             </div>
         </div>
     </>)
