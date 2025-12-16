@@ -1,0 +1,24 @@
+.Banner {
+    background-color: rgba(1, 0, 0, 0.713);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Banner img {
+    width: 100px;
+    border-radius: 40%;
+    padding: 20px;
+}
+
+.Banner button {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 10px;
+}

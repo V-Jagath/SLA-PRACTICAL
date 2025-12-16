@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Chat Tasks</title>
+</head>
+
+<body>
+    <p id="redtext">This is a RED Color Button</p>
+    <button id="red_btn" style="background-color:white;color:black;width:100px;font-weight:bold">Red</button>
+    <p id="bluetext">This is a BLUE Color Button</p>
+    <button id="blue_btn" style="background-color:white;color:black;width:100px;font-weight:bold">Blue</button>
+    <p id="greentext">This is a GREEN Color Button</p>
+    <button id="green_btn" style="background-color:white;color:black;width:100px;font-weight:bold">Green</button>
+    <script>
+        const green_btn = document.getElementById("green_btn")
+        green_btn.addEventListener("mouseenter", () => {
+            green_btn.style.backgroundColor = "red";
+            green_btn.style.transform = "scale(1)";
+        });
+
+        // hover leave
+        green_btn.addEventListener("mouseleave", () => {
+            green_btn.style.backgroundColor = "white";
+            green_btn.style.transform = "scale(1)";
+        });
+        // const redbtn = document.getElementById("red_btn");
+        // const bluebtn = document.getElementById("blue_btn");
+        // const greenbtn = document.getElementById("green_btn");
+        // red_btn.addEventListener('click', () => {
+        //     const redtext = document.getElementById("redtext");
+        //     if (redtext.style.color === "black") {
+        //         redtext.style.cssText = "background-color:red; color:white";
+        //         red_btn.style.cssText = "background-color:red;color:white;width:100px;font-weight:bold"
+        //     }
+        //     else {
+        //         redtext.style.cssText = "background-color:white; color:black";
+        //         red_btn.style.cssText = "background-color:white;color:black;width:100px;font-weight:bold"
+        //     }
+
+        // })
+
+        // blue_btn.addEventListener('click', () => {
+        //     const bluetext = document.getElementById("bluetext");
+        //     if (bluetext.style.color === "black") {
+        //         bluetext.style.cssText = "background-color:blue; color:white";
+        //         blue_btn.style.cssText = "background-color:blue;color:white;width:100px;font-weight:bold"
+        //     }
+        //     else {
+        //         bluetext.style.cssText = "background-color:white; color:black";
+        //         blue_btn.style.cssText = "background-color:white;color:black;width:100px;font-weight:bold"
+        //     }
+        // })
+
+
+        // green_btn.addEventListener('click', () => {
+        //     const greentext = document.getElementById("greentext");
+        //     if (greentext.style.color === "black") {
+        //         greentext.style.cssText = "background-color:green; color:white";
+        //         green_btn.style.cssText = "background-color:green;color:white;width:100px;font-weight:bold"
+        //     }
+        //     else {
+        //         greentext.style.cssText = "background-color:white; color:black";
+        //         green_btn.style.cssText = "background-color:white;color:black;width:100px;font-weight:bold"
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

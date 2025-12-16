@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aadhikesavan M">
+    <meta name="description" content="Request a ride with Uber. Get up to 50% off your first 5 rides.">
+    <meta name="keywords" content="Uber, Ride, Request, Discount, First Ride">
+    <title>Ride with Uber | Request ride</title>
+    <link rel="icon" href="./img/Uber - Tradedress.png" type="image/x-icon">
+    <link rel="stylesheet" href="./External-css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        * {
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+
+        .logo,
+        .nav-right {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .text-nav {
+            margin-top: 15px;
+            font-weight: 200;
+            text-decoration: none;
+            color: white;
+        }
+
+        .text-nav:hover {
+            background-color: rgba(106, 106, 106, 0.43);
+            height: fit-content;
+            border-radius: 20px;
+            padding: 5px 10px;
+
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-top: 15px;
+            margin-left: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .nav-right {
+            margin-right: 30px;
+        }
+
+        .sign {
+            background-color: white;
+            color: black !important;
+            height: fit-content;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .sign:hover {
+            background-color: white;
+            color: black;
+            height: fit-content;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .req-ride {
+            font-size: 70px;
+            font-weight: 700;
+            margin-top: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+
+        .pick-loc {
+            font-size: 20px;
+            font-weight: 200;
+            margin-top: 20px;
+        }
+
+        form>input {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form>input::placeholder {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 200;
+        }
+
+        .price-check {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .schedule {
+            background-color: #f0f0f0;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 100px;
+        }
+
+        .img-home {
+            width: 550px;
+            height: 550px;
+            border-radius: 20px;
+        }
+
+        .price-check:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .schedule:hover {
+            background-color: #e0e0e0;
+            color: black;
+        }
+
+        .suggest {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .card {
+            box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+            width: 100%;
+            max-width: 350px;
+            background-color: #F7F7F7;
+            border-radius: 20px;
+            display: inline-block;
+
+        }
+
+        .card-content>h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 20px 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .card-content>p {
+            font-size: 16px;
+            font-weight: 200;
+            margin: 20px 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .card-content>button {
+            background-color: rgba(236, 235, 235, 0.7);
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 20px 30px;
+        }
+
+        .card-img {
+            float: right;
+        }
+
+        .suggest-card {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .para-foot {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-top: 70px;
+        }
+
+        .card-img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .section-3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-img-2 {
+            margin: 100px;
+            width: 500px;
+            height: 400px;
+        }
+
+        .des-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .des-list>li {
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .section-6 {
+            cursor: pointer;
+            margin-top: 100px;
+            margin-left: 50px
+        }
+
+        .para-foot {
+            background-color: black;
+            width: 100%;
+            height: 60px;
+            margin-bottom: 0px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .marquee {
+            background-color: black;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            padding: 10px 0;
+            width: 100%;
+            height: 35px;
+            position: fixed;
+            top: 70px;
+            z-index: 1;
+            margin-bottom: 20px;
+        } */
+         
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1 class="logo-text">Uber</h1>
+                <a class="text-nav" href="#">Ride</a>
+                <a class="text-nav" href="#">Drive</a>
+                <a class="text-nav" href="#">Business</a>
+                <a class="text-nav" href="#">About</a>
+            </div>
+
+            <div class="nav-right">
+                <a class="text-nav" href="#"><span class="globe">&#127760</span>En</a>
+                <a class="text-nav" href="#">Help</a>
+                <a class="text-nav" href="#">Login</a>
+                <a class="text-nav sign" href="#">Sign up</a>
+            </div>
+        </nav><br>
+    </header>
+
+    <section>
+        <!-- <marquee class="marquee" behavior="scroll" direction="left" scrollamount="10">
+            <h4>Up to 50% off your first 5 Uber rides.</h4>
+        </marquee> -->
+
+        <div class="container">
+            <div class="card-1">
+                <h2 class="req-ride">Request a ride </h2>
+                <p class="pick-loc">&#127991<b>Up to 50% off your first 5 Uber rides.</b><br> T&Cs apply.* *Valid within
+                    15 days of signup.</p>
+                <form>
+                    <input type="text" id="pickup" name="pickup" placeholder="Enter Location" required><br>
+                    <input type="text" id="destination" name="destination" placeholder="Enter Destination" required><br>
+
+                    <button class="price-check">See Prices</button>
+                    <button class="schedule">Schedule for Later</button>
+                </form>
+            </div>
+
+            <div class="card-2">
+                <img src="./img/travel-ilustra.webp" alt="traveller" class="img-home">
+            </div>
+    </section>
+
+    <section>
+        <div class="section-2">
+            <h2 class="suggest">Suggestion </h2>
+
+            <div class="suggest-card">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Rent</h3>
+                        <p>Go any where with Uber.request a ride, hop in and go.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/ride.png" alt="UberX" class="card-img" style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Reserve</h3>
+                        <p>Reserve your ride in advance so you can rest your day of out.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/reserve_clock.png" alt="UberX" class="card-img"
+                            style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Intercity</h3>
+                        <p>Get convinient, affortable outstation cabs any time at your door.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/ride.png" alt="UberX" class="card-img" style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="suggest-card">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Courier</h3>
+                        <p>Uber makes same day item delivery easier than ever.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/Courier.png" alt="UberX" class="card-img" style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Rentals</h3>
+                        <p>Request a trip for a block of time and make multiple stops.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/ride.png" alt="UberX" class="card-img" style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Moto</h3>
+                        <p>Get affortable moto ride in minutes at your door.</p>
+                        <button class="suggest-button">Details</button>
+                        <img src="./img/Uber_Moto_India1.png" alt="UberX" class="card-img"
+                            style="width: 100px; height: 100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="section-3">
+            <div class="3-img">
+                <img src="./img/landing-stops-group-rides.webp" alt="Group Rides" class="card-img-2">
+            </div>
+            <div class="3-content">
+                <h2 class="suggest">Ride with friends<br> Seamlessly</h2>
+                <p class="para">Riding with friends just got easier: set up a group ride in the <br>Uber app, invite
+                    your friends, and arrive at your destination.<br> Friends who ride together save together.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="section-4">
+            <ul class="des-list">
+                <li>*Join the millions of riders who trust Uber for their everyday travel needs. Get doorstep pickup and
+                    dropoff to your chosen destination at the tap of a button. Select from a wide range of affordable
+                    options, such as Uber Auto, Uber Moto, and Cabs.</li>
+                <li>Limited-period offer- Discount on first 5 trips (cab or moto) completed within 15 days of signing
+                    up. The offer is valid only for first-time users only. The promotion shall apply automatically to
+                    eligible rides. Download the Uber app now to request your first ride.</li>
+                <li>Discounts applicable - (i) For cab rides- 25% discount (maximum discount of INR 75 per ride) (ii)
+                    For moto rides- 50% discount (maximum discount of INR 50 per ride)</li>
+                <li>This offer cannot be combined with any other offers or promo codes.
+                </li>
+                <li>The offer is non-transferrable and limited to one per user/account.</li>
+                <li>MUber reserves the right to alter, suspend or withdraw the promotion offer in the future in its sole
+                    discretion without any prior notice. Terms and conditions apply.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-5">
+            <h2 class="suggest">Get the app</h2>
+            <p class="para" style="text-align: center; font-family:Arial, Helvetica, sans-serif; font-size: 20px;">
+                Download the Uber app and get a ride from your phone.</p>
+            <div class="app-links">
+                <a href="#"><img src="./img/app-store-google-4d63c31a3e.svg" alt="App Store"
+                        style="width: 150px; height: 50px;"></a>
+                <a href="#"><img src="./img/app-store-apple-f1f919205b.svg" alt="Google Play"
+                        style="width: 150px; height: 50px;"></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-6">
+        <div class="bottom">
+
+            <div class="row">
+                <div class="col">
+                    <h5 class="f-title">Subscribe to our emails</h5>
+                    <br>
+                    <h6 class="sbs">Subscribe to us to bring the details of latest range of products that we bring to
+                        you through www.Uber.com</h6>
+                    <br>
+                    <input type="email" placeholder="Email" class="email">
+                    <br><br>
+                    <button class="price-check">Subscribe</button>
+                </div>
+
+                <div class="col">
+                    <h5 class="f-title">Information</h5>
+                    <ul class="id">
+                        <li>
+                            <h6>About Uber</h6>
+                        </li>
+                        <li>
+                            <h6>Blogs</h6>
+                        </li>
+                        <li>
+                            <h6>FAQS</h6>
+                        </li>
+                        <li>
+                            <h6>Contact Us</h6>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col">
+                    <h5 class="f-title">Need Help</h5>
+                    <h6 class="help">Refund Policy</h6>
+                    <h6 class="help">Privacy Policy</h6>
+                    <h6 class="help">Terms and Conditions</h6>
+                </div>
+
+                <div class="col">
+                    <h5 class="f-title">Customer support</h5>
+                    <ul class="icon-1">
+
+                        <li><a href="https://instagram.com/tata_nutrikorner?igshid=YmMyMTA2M2Y="><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                </svg></a></li>
+
+                        <li><a href="https://www.youtube.com/channel/UCfVfXdLYaxgfqn-6tKuPagw"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-youtube" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                                </svg></a></li>
+
+                        <li><a href="https://www.facebook.com/tatanutrikorner/"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="16" height="16" fill="currentColor" class="bi bi-facebook"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg></a></li>
+
+                    </ul>
+                    <br>
+
+                    <h6 class="contact-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                            <path
+                                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>+91-8668068473</h6>
+                    <br>
+
+                    <h6 class="contact-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg> care@Uber.com</h6>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p class="para-foot">© 2025 Uber Technologies Inc.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

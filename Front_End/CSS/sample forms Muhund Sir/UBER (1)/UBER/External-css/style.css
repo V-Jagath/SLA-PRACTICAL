@@ -1,0 +1,387 @@
+.container-fluid{
+    width:100%;
+    height:fit-content;
+    margin-top: 10px;
+}
+
+.Submit{
+    width:112px;
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    padding:10px 15px;  
+}
+
+.head{
+    background-color: white;
+    position: sticky;
+    top:-2px;
+    z-index: 1;
+}
+
+
+
+
+.nav-list{
+    display:flex;
+    gap:30px;
+    width:100%;
+    padding:15px 15px;
+    list-style: none;
+    background-color: #EFB34C;
+    color:black;
+    font-family: sans-serif;
+    font-size: 20px;
+    
+}
+
+.homepage{
+    color:grey;
+}
+.name{
+    font-weight: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.image{
+   
+    float: left;
+    height:600px;
+    width:400px;
+}
+
+
+.caption{
+    float:right;
+    font-size: 15px;
+}
+    
+
+.strong{
+    color:green;
+    font-weight: bold;
+}
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.ATC{
+    border:none;
+    border-radius: 5px;
+    background-color: #EFB34C;
+    padding:13px 100px;
+    float:right;
+}
+.description{
+    float:left;
+}
+.atc,.hp,.icon{
+    border:none;
+    background-color: white;
+}
+.reviews{
+    float:left;
+    border:1px solid rgb(248, 241, 241);
+}
+
+.kg{
+    font-size: 20px;
+    margin-left:102px;
+    color:rgb(117, 91, 59)
+}
+.star{
+    font-size: 15px;
+    margin-left:130px;
+
+}
+
+.li-star{
+    list-style:none;
+    display: flex;
+    gap:6px;
+    margin-left: 97px;
+}
+.no-review{
+    font-size:15px;
+    margin-left: 80px;
+}
+.war{
+    border:none;
+    border-radius: 4px;
+    font-size:15px;
+    background-color:  #ff824c;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    padding:10px 35px;
+    margin-left:97px;
+}
+.f-title{
+    font-weight:bold
+}
+.sbs{
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.email{
+    border:none;
+}
+.subscribe{
+    border:none;
+    background-color: rgb(1, 95, 1);
+    color:white;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+.id>li{
+    margin-top:11px;
+    list-style:none;
+    padding: 4px 0px;
+}
+.help{
+    padding:10px 0px;
+}
+.icon-1{
+    list-style: none;
+    display:flex;
+    gap:50px;
+    color: black;
+    padding-top: 10px;
+}
+.contact-1{
+    font-weight: bold;
+}
+.footer{
+    background-color: rgb(19, 18, 18);
+    color:white;
+    width:100%;
+    float:left;
+    margin-top:10px;
+}
+.footer-image{
+    width:170px;
+    padding: 10px;
+    margin-left: 20px;
+}
+.copy-rights{
+    font-weight: bold;
+    font-size: 14px;
+}
+.share{
+    display: flex;;
+}
+.share-txt{
+    font-weight: bold;
+}
+
+.img-tata{
+    height:300px;
+    width:200px;
+    margin-left: 74px;
+}
+
+.aside-list{
+    list-style: none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    gap:40px;
+}
+
+.sec{
+    display: flex;
+
+}
+
+.Cards{
+    margin-left:50px;
+    display: flex;
+    gap:50px;
+}
+
+.Cards-2{
+    margin-left:205px;
+    display: flex;
+    gap:50px;
+}
+
+
+
+.card{
+    width:fit-content;
+}
+
+.card-image{
+    height:300px;
+    width:200px;
+    margin-left:45px;
+}
+
+.card-name{
+    margin-left:39px;
+}
+.card-price{
+   padding-left:110px;
+}
+    
+.Atc-name{
+    border-radius: 5px;
+    border:none;
+    background-color: #eca324;
+    padding:13px 100px;
+}
+.card-cart{
+    border:none;
+    padding-bottom: 15px;
+}
+
+.s-g{
+    padding-right: 25px;
+}
+
+.g-c{
+    padding-left: 35px;
+}
+
+.t-g{
+    padding-left:35px;
+}
+
+.tg-t{
+    padding-left: 50px;
+
+}
+
+.tatagold{
+    padding-right:30px;
+}
+
+.head-image{
+    width:100%;
+    padding-bottom: 25px;
+}
+
+.offer{
+    font-size: 16px;
+    background-color: rgb(255, 84, 84);
+    color:white;
+    width:fit-content;
+    padding:3px 10px;
+    margin: 6px;
+    border-radius: 5px;
+    
+}
+
+.trending{
+    font-size: 16px;
+    background-color: rgb(255, 231, 96);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width:fit-content;
+    padding:5px 20px;
+    margin: 6px;
+    border-radius: 5px;
+
+}
+
+
+
+
+a:link{
+    color:inherit;
+    text-decoration: none !important;
+}
+
+
+
+.Submit:hover{
+    background-color: rgb(8, 71, 8);
+    color:white;
+}
+
+.ATC:hover{
+    background-color: #ffa200;
+    font-weight: bold;
+}
+
+.nav-list>li:hover{
+    color:rgb(107, 97, 97);
+    cursor: pointer;
+}
+
+.nav-list>li:hover:active{
+    color:green;
+    text-decoration: underline;
+}
+
+.des-list>li:hover{
+    color:grey;
+}
+
+.li-star>li:hover{
+      color:  gold;
+}
+.war:hover{
+    background-color:orangered;
+    font-weight: bold;
+}
+.subscribe:hover{
+    box-shadow: rgb(28, 151, 17) 5px 5px 15px;
+    background-color: green;
+    font-weight: bold;
+}
+.f-title:hover{
+    color:rgba(133, 133, 133, 0.756)
+}
+.contact-1:hover{
+    color:rgba(133, 133, 133, 0.756)
+}
+
+.aside-list>li:hover{
+    color:rgb(234, 237, 234);
+}
+
+.aside-list>li{
+    padding-bottom: 10px;
+}
+
+
+
+/*@media (max-width:400px){
+
+    body{
+        width:100px;
+        height:100vh;
+        margin-left: 0px;
+    }
+
+
+    .t-o{
+        visibility: hidden;
+    }
+
+    .col-4{
+        visibility: hidden;
+    }
+    .icon .img{
+        width:180px;
+        height:60px;
+    }
+
+    .profile{
+        visibility: hidden;
+    }
+
+    .cart{
+       visibility: hidden;
+    }
+
+    .nav{
+        width:fit-content;
+    }
+
+    .nav-list{
+        font-size: 10px;
+        gap: 4px;
+    }
+}*/

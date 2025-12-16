@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Programs</title>
+</head>
+
+<body>
+    <script>
+        // 5.Palindrome
+        let word = "madam";
+        let revword = "";
+
+        for (let i = word.length - 1; i >= 0; i--) {
+            revword += word[i];
+            // console.log(word[i])
+            console.log(revword)
+        }
+
+        if (word === revword) {
+            console.log("Palindrome");
+        } else {
+            console.log("Not a Palindrome");
+        }
+
+        //6. Print a Squere * pattern
+        let num = 5;
+
+        for (let i = 1; i <= num; i++) {
+            let row = "";
+            for (let j = 1; j <= num; j++) {
+                row += "  *  ";
+            }
+            console.log(row);
+        }
+
+        //Method -2 
+
+        let n = 5;
+        for (let i = 1; i <= n; i++) {
+            console.log("  *  ".repeat(n))
+        }
+
+        //7. Right Triangle
+
+        let number = 5;
+
+        for (let a = 1; a <= number; a++) {
+            console.log(" * ".repeat(a))
+        }
+
+        // Method 2
+
+        let b = 5;
+        for (let c = 1; c <= b; c++) {
+            let data = "";
+            for (let d = 1; d <= c; d++) {
+                data += " * "
+            }
+            console.log(data)
+        }
+        // 8. Inverted Triangle of *
+        let num1 = 5;
+        for (let i = n; i >= 1; i--) {
+            console.log("*".repeat(i))
+        }
+
+    </script>
+</body>
+
+</html>

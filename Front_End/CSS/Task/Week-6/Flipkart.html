@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <style>
+        .body {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .head-nav {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav img {
+            width: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .Search input {
+            width: 300px;
+            padding: 10px;
+        }
+
+        .Search button {
+            padding: 7px;
+        }
+
+        .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media(max-width:600px) {
+            .nav a {
+                display: none;
+            }
+
+            .Search input {
+                width: 100px;
+                padding: 4px;
+            }
+
+            .Search button {
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head-nav">
+            <div class="topic">
+                <img src="../../../CSS/Task/Week-4/Filpkart/Flipkart logo.png" alt="Amazon">
+            </div>
+            <div class="Search">
+                <input type="text" placeholder="Search for Products,Brands and More">
+                <button>Search</button>
+            </div>
+            <nav>
+                <div class="nav">
+                    <div class="image">
+                        <img src="../../../CSS/Task/Week-4/Filpkart/avatar.png" alt="">
+                        <a href="">Login</a>
+                    </div>
+                    <div class="image">
+                        <img src="../../../CSS/Task/Week-4/Filpkart/shopping-cart.png" alt="">
+                        <a href="">Cart</a>
+                    </div>
+                    <div class="image">
+                        <img src="../../../CSS/Task/Week-4/Filpkart/seller.png" alt="">
+                        <a href="">Become a Seller</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</body>
+
+</html>

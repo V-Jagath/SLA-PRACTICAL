@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>LifeLine - Blood and Organ Donation</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+        --primary-color: #ea2a33;
+        --secondary-color: #fef0f0;
+        --background-color: #ffffff;
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --accent-color: #ffcccc;
+      }
+      body {
+        font-family: "Be Vietnam Pro", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-primary);
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--background-color)] text-[var(--text-primary)]">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-6 lg:px-10 py-4">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">
+                        volunteer_activism
+                    </span>
+                    <h2 class="text-[var(--text-primary)] text-xl font-bold leading-tight tracking-[-0.015em]">LifeLine
+                    </h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                        href="#">About</a>
+                    <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                        href="#">How it Works</a>
+                    <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                        href="#">Contact</a>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <button
+                        class="flex min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-red-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50">
+                        <span class="truncate">Donate Now</span>
+                    </button>
+                    <button
+                        class="flex min-w-[110px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--secondary-color)] text-[var(--primary-color)] border border-[var(--primary-color)] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[var(--primary-color)] hover:text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50">
+                        <span class="truncate">Request Help</span>
+                    </button>
+                    <button class="md:hidden p-2 rounded-md text-[var(--text-secondary)] hover:bg-gray-100">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+            <main class="flex-1">
+                <section class="relative bg-cover bg-center"
+                    style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAd3qyZaSvkceg1DCZAMa7aGDf7v4t5e7hIZKt7smAH979MAuEbUokhh-yBdFPTrkRjGQlA8B8awnUBIZnTt-UaT_EFuqz0KUpddj6L-fqzbCXCMKiFmrJQ2oshumkvfBy4Hpyw7dUKm1EvqtCZPrjKm44BUD-0LSCG47tg5F_8r8xbSXHphwqOLV5Io790TZQBh9IZepLmJ2sRqHvHmymSMC4bjUqjxDzRFYx57xs_h6n68xczpq9k7Fn-DzU-l_yFQM_mKzGCDqoH");'>
+                    <div class="container mx-auto px-4 py-24 md:py-32 max-w-7xl text-center text-white">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
+                            Give the Gift of Life
+                        </h1>
+                        <p class="text-lg md:text-xl font-light max-w-3xl mx-auto mb-8">
+                            Connect with those in need and make a difference in your community.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <button
+                                class="flex min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-red-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50">
+                                <span class="truncate">Donate Blood</span>
+                            </button>
+                            <button
+                                class="flex min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-[var(--text-primary)] text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors duration-200 ease-in-out">
+                                <span class="truncate">Donate Organs</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-16 md:py-24 bg-[var(--secondary-color)]">
+                    <div class="container mx-auto px-4 max-w-7xl">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] leading-snug mb-3">
+                                How LifeLine Works
+                            </h2>
+                            <p class="text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto">
+                                Our platform simplifies the process of donating blood and organs, ensuring your
+                                contribution reaches those who need it most.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
+                                <div class="flex justify-center items-center mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-[var(--primary-color)]">location_on</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] mb-2">Find Nearby Patients
+                                </h3>
+                                <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Locate patients in
+                                    urgent need of blood or organ donations in your area.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
+                                <div class="flex justify-center items-center mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-[var(--primary-color)]">groups</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] mb-2">Connect with
+                                    Volunteers</h3>
+                                <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Connect directly with
+                                    volunteers and donors to coordinate donations.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
+                                <div class="flex justify-center items-center mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-[var(--primary-color)]">emergency</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-[var(--text-primary)] mb-2">Immediate Assistance
+                                </h3>
+                                <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Provide immediate
+                                    assistance to patients in critical conditions, saving lives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-16 md:py-24 bg-[var(--background-color)]">
+                    <div class="container mx-auto px-4 max-w-7xl text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] leading-snug mb-3">
+                            Ready to Make a Difference?
+                        </h2>
+                        <p class="text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto mb-8">
+                            Join our community of donors and volunteers today and help save lives.
+                        </p>
+                        <button
+                            class="flex min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] mx-auto hover:bg-red-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50">
+                            <span class="truncate">Get Started</span>
+                        </button>
+                    </div>
+                </section>
+            </main>
+            <footer class="bg-gray-50 border-t border-gray-200">
+                <div class="container mx-auto px-4 py-8 max-w-7xl">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[var(--primary-color)] text-2xl">
+                                volunteer_activism
+                            </span>
+                            <h2 class="text-[var(--text-primary)] text-lg font-bold">LifeLine</h2>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-center gap-6">
+                            <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">Privacy Policy</a>
+                            <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal"
+                                href="#">Terms of Service</a>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)]" href="#">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M22.46,6.54a.5.5,0,0,0-.38-.2L18.8,6.08a4.3,4.3,0,0,0-3.79-2.08,4.12,4.12,0,0,0-4,2.78,4.2,4.2,0,0,0-1.4,3.28v.63C6.7,11.23,4.24,8.5,4.2,8.45a.5.5,0,0,0-.8-.15c-2,2.37.28,5.43,2,7.31a9.2,9.2,0,0,0,2.83,2.4,1,1,0,0,0-.17,0,10.59,10.59,0,0,0-3.66.86.5.5,0,0,0-.24.89,1.19,1.19,0,0,0,.3.22c.49.27,1.21.49,2.23.63A7.54,7.54,0,0,0,12,22c5.83,0,10.23-4.8,10.45-10.7l1.79-1.8a.5.5,0,0,0-.16-.67Zm-1.8,1.82-2,2a.5.5,0,0,0-.14.34c-.21,5-4,8.8-8.82,8.8-1.5,0-2.6-.33-3.41-.65,1.1-.53,2.26-1.42,3.13-2.61a.5.5,0,0,0-.3-.85c-3.13-1.43-5.26-4.48-4-6.85,1.52-2.86,5.33-.4,5.33-.39a.5.5,0,0,0,.49.38.5.5,0,0,0,.43-.24A3.12,3.12,0,0,1,15,8a3.3,3.3,0,0,1,3.22-3.1,3.42,3.42,0,0,1,2.88,1.45.5.5,0,0,0,.41.25.47.47,0,0,0,.21,0l3.32-.46Z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)]" href="#">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3,10.9v6.5H12.35V13.57h-1.7V10.9h1.7V8.81c0-1.3,1.06-2.31,2.45-2.31H17v2.67H15.8c-.3,0-.45.14-.45.42v1.31H17Z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)]" href="#">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.43,7.57a1.44,1.44,0,1,1-1.44-1.44A1.44,1.44,0,0,1,16.43,7.57ZM12,8.23A3.77,3.77,0,1,1,8.23,12,3.77,3.77,0,0,1,12,8.23Zm0,6A2.23,2.23,0,1,0,9.77,12,2.23,2.23,0,0,0,12,14.23Zm5,2.44A2.34,2.34,0,0,1,14.67,19H9.33A2.34,2.34,0,0,1,7,16.67V9.33A2.34,2.34,0,0,1,9.33,7h5.34A2.34,2.34,0,0,1,17,9.33Z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
+                        <p>© 2024 LifeLine. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.ticket {
+    background-color:rgb(155, 255, 230);
+}
+
+.ipl h1 {
+    color: chartreuse;
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.ipl img {
+    border-radius: 100px;
+    float: inline-start;
+}
+
+.ipl p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.book a {
+    text-decoration: none;
+    font-weight: bolder;
+    background-color: black;
+    color: blanchedalmond;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+.book{
+    margin-bottom: 90px;
+    margin-left: 600px;
+}

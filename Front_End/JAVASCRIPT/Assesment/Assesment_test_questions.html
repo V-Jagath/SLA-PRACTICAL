@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment</title>
+    <style>
+        .nav_bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            align-items: center;
+            /* position: sticky; */
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav_links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav_links a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--10. How do you create a fixed navigation bar at the top of the page using CSS? -->
+
+    <h2> 10. How do you create a fixed navigation bar at the top of the page using CSS?</h2>
+
+    <nav>
+        <div class="nav_bar">
+            <div>
+                <img src="../../Project/Blood_Donation/Assets/Logo/logo.jpeg" width="50px">
+            </div>
+            <div class="nav_links">
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Contact us</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 11. Write an HTML form and a JavaScript function to validate that the email input is in the
+        correct format before submission. -->
+    <h2>11. Write an HTML form and a JavaScript function to validate that the email input is in the
+        correct format before submission.</h2>
+    <div>
+        <form id="emailForm" onsubmit="return validateEmail()">
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="Enter your email">
+            <p id="errorMsg" class="error"></p>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- 12. How do you toggle the visibility of a paragraph when a button is clicked? -->
+    <h2>12. How do you toggle the visibility of a paragraph when a button is clicked?</h2>
+    <div>
+        <h3>what is Dom?</h3>
+        <button id="pera_show">Hide</button>
+        <p id="pera" style="display: block;">DOM stands for Documnet Object Model</p>
+    </div>
+
+    <!-- 13.Write a JavaScript function to: -->
+    <!-- • toggle a class on an element when a button is clicked. -->
+    <!-- • Implement a function to show an alert and then disable a button after clicking. -->
+    <div>
+        <h2>13.Write a JavaScript function to: </h2>
+        <h2> • toggle a class on an element when a button is clicked.</h2>
+        <h2>• Implement a function to show an alert and then disable a button after clicking.</h2>
+    </div>
+
+    <div>
+        <p id="box">This is a box</p>
+        <button id="toggle_btn">Toggle Button</button>
+    </div>
+
+
+
+    <div>
+        <h2 id="emp">Display a List of Employees with Their Salaries using JS</h2>
+
+    </div>
+    <script>
+
+        const employees = [{ emp_id: 1, name: hari, salary: 30000 },
+        { emp_id: 2, name: suriya, salary: 50000 },
+        { emp_id: 3, name: karthi, salary: 80000 }];
+
+        const above50k = emp => emp.salary > 50000;
+        console.log(emp);
+
+        // <!-- 13.Write a JavaScript function to: -->
+        // <!-- • toggle a class on an element when a button is clicked. -->
+        const box = document.getElementById("box")
+        const toggle_btn = document.getElementById("toggle_btn")
+        // toggle_btn.addEventListener("click", () => {
+        //     box.classList.toggle("active")
+        //     console.log("working");
+        // })
+
+        // <!-- • Implement a function to show an alert and then disable a button after clicking. -->
+
+        toggle_btn.addEventListener("click", () => {
+
+            alert("disable a button")
+            toggle_btn.disabled = true
+        })
+
+
+        //    12. How do you toggle the visibility of a paragraph when a button is clicked?
+        const pera_show = document.getElementById("pera_show")
+        pera_show.addEventListener("click", () => {
+            const pera = document.getElementById("pera")
+            if (pera.style.display === "block") {
+                pera.style.display = "none"
+                pera_show.innerText = "show"
+            }
+            else {
+                pera.style.display = "block"
+                pera_show.innerText = "Hide"
+            }
+        })
+
+
+        // 11. Write an HTML form and a JavaScript function to validate that the email input is in the
+        // correct format before submission.
+
+        function validateEmail() {
+            const email = document.getElementById("email").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+
+            // Regular expression for basic email validation
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+            // /\S+@\S+\.\S+/
+
+            if (email === "") {
+                errorMsg.textContent = "Email field cannot be empty.";
+                return false;
+            } else if (!emailPattern.test(email)) {
+                errorMsg.textContent = "Please enter a valid email address.";
+                return false;
+            } else {
+                errorMsg.textContent = "";
+                alert("Email is valid. Form submitted successfully!");
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

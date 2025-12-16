@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .mystyle{
+        background-color:black;
+        color:white;
+     }
+    </style>
+</head>
+<body>
+    <h1 id ="heading" class="mystyle">
+
+    
+    </h1>
+    <button id="btn">click</button>
+    <script>
+        const heading=document.getElementById("heading")
+        
+        const button = document.getElementById("btn")
+
+        button.addEventListener("click",()=>{
+            heading.innerHTML="dom proces"
+        // heading.style.backgroundColor="black"
+        //  heading.style.color="white"
+
+
+        heading.style.cssText = "background-color:black;color:white;"
+       heading.classList.add("mystyle")
+        })
+    </script>
+</body>
+</html>

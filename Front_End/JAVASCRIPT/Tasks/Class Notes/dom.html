@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Process Intro</title>
+</head>
+
+<body>
+    <h1 id="title">Dom Process</h1>
+    <button id="btn">Click</button>
+
+    <div style="margin-bottom: 10px; background-color: black;color: white;
+        padding: 20px;height: 100vh;display: flex;justify-content: center;align-items: center;">
+        <div id="box" style="background-color: white; color: black;
+            padding: 10px;width: 200px;height: 200px;display: flex;
+            justify-content: center;align-items: center;">
+            <h1>This is Box</h1>
+        </div>
+
+    </div>
+    <div style="text-align: center;">             
+        <button style="padding: 7px; width: 100px; border: none; 
+            background-color: rgb(12, 0, 0);color: white;border-radius: 20px;" id="btnnew_change">Hide</button>
+    </div>
+
+
+    <script>
+
+        const heading = document.getElementById("title");
+        //console.log('selected tags',heading);
+        const btn_new = document.getElementById("btn");
+        //console.log(btn_new);
+
+        btn_new.addEventListener('click', () => {
+            heading.innerHTML = "This is Dom Manuplation"
+            heading.style.backgroundColor = "blue"
+            heading.style.color = "white"
+
+        })
+
+
+
+        const boxnew = document.getElementById('box');
+        const btnnewchange1 = document.getElementById("btnnew_change");
+
+        btnnewchange1.addEventListener('click', () => {
+
+            if (boxnew.style.display === "flex") {
+
+                boxnew.style.display = "none"
+
+            } else {
+                boxnew.style.display = "flex"
+            }
+
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

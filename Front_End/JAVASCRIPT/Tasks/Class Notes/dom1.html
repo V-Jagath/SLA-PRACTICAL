@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <input id="data" type="text">
+        <button id="btn" type="submit">submit</button>
+    </form>
+    <div id="box" style="background-color: rgb(86, 7, 255);color: white;display: none;">
+        dom
+    </div>
+
+    <script>
+        const myform = document.getElementById("form")
+        const box = document.getElementById("box")
+
+        myform.addEventListener('submit', () => {
+
+            vijai.preventDefault()
+            const form = document.getElementById("data").value
+
+            if (form === "blue") {
+                box.style.display = "block"
+
+            } else {
+                box.style.display = "none"
+            }
+        })
+
+    </script>
+</body>
+
+</html>

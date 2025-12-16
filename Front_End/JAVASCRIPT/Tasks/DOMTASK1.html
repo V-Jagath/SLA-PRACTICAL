@@ -1,0 +1,283 @@
+<!-- Part A - Simple DOM (Non-Form)
+1. Change the text of a paragraph when a button is clicked.
+2. Create a box and toggle its visibility using one button (hide/show).
+3. Change background color of a div randomly when a button is pressed.
+4. On hover over an image, replace it with another image.
+5. Create a counter with + and - buttons to increase/decrease value in DOM. -->
+
+<!-- Create a box and toggle its visibility using one button (hide/show) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM TASK 1</title>
+    <style>
+        #links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #box {
+
+            padding: 20px;
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        #color_btn {
+            padding: 5px;
+            width: 100px;
+            color: white;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!--1. Change the text of a paragraph when a button is clicked. -->
+    <h4>1. Change the text of a paragraph when a button is clicked.</h4>
+
+    <h1 id="dom">DOM - Document Object Model</h1>
+    <p id="pera1" style="display: block;">DOM stands for the Document Object Model, which is a programming interface for
+        HTML and XML documents
+        that
+        represents the document as a tree of objects or nodes, allowing scripting languages like JavaScript to
+        dynamically access, manipulate, and change the document's structure, style, and content. It provides a standard
+        way for programs to interact with the document and add interactivity to web pages by creating, removing, or
+        modifying elements and attaching event listeners. </p>
+    <button id="readmore_btn">Read More</button>
+
+    <p id="pera2" style="display: none;">How the DOM Works
+        Tree Structure: The DOM represents an HTML or XML document as a logical tree structure, where each part of the
+        document (like tags, text, or comments) becomes a node in the tree.
+        Nodes as Objects: Each node in the tree is an object that can be accessed and modified.
+        Dynamic Interaction: Programming languages, most commonly JavaScript, can interact with these nodes to:
+        Create: Add new elements to the page.
+        Change: Modify the content, structure, or style of existing elements.
+        Remove: Delete elements from the page.
+        Respond to Events: Attach event listeners to nodes to trigger actions when a user interacts with the page, such
+        as clicking a button or moving the mouse. </p>
+
+
+    <!-- 2. Create a box and toggle its visibility using one button (hide/show). -->
+    <h4>2. Create a box and toggle its visibility using one button (hide/show).</h4>
+    <nav id="navbar"
+        style="background-color: black; color: white; display: flex;justify-content: space-between;align-items: center;">
+        <div>
+            <h3>LOGO</h3>
+        </div>
+        <div id="links">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact us</a>
+        </div>
+    </nav>
+    <button id="btn" style="margin-top: 20px;">Hide</button>
+
+
+    <!-- 3. Change background color of a div randomly when a button is pressed. -->
+    <h4>3. Change background color of a div randomly when a button is pressed.</h4>
+    <div id="box" style="background-color: blueviolet;">
+
+        <h1>Change the Background Color</h1>
+        <button id="color_btn">Change Color</button>
+    </div>
+
+    <!-- 4.On hover over an image, replace it with another image. -->
+    <h4>4.On hover over an image, replace it with another image</h4>
+    <div>
+        <h4>Hover the image</h4>
+        <img id="img1" style="display: inline-block;" src="../../Project/Blood_Donation/Assets/Photos/Blood-camp-1.jpg"
+            alt="">
+        <button id="img_btn">Change Image</button>
+    </div>
+
+    <!-- 5. Create a counter with + and - buttons to increase/decrease value in DOM. -->
+    <h4>5. Create a counter with + and - buttons to increase/decrease value in DOM.</h4>
+    <div id="counter"
+        style="display: flex;align-items: center; justify-content: center; gap: 30px; background-color:crimson; width: 200px;height: 200px;">
+        <button id="decrease">-</button>
+        <h3 id="total">Count:</h3>
+        <button id="increase">+</button>
+    </div>
+
+    <!-- Part B - Form + DOM Basics -->
+    <!--6. Create a form with name and email fields.Print entered values on console without reload. -->
+    <h2 style="text-align: center;">Part B - Form + DOM Basics</h2>
+    <h4>6. Create a form with name and email fields.Print entered values on console without reload.</h4>
+    <div>
+        <form action="" id="user_data">
+            <label for="" id="name">Name :</label>
+            <input type="text" id="name_data"><br><br>
+            <p id="name_error"></p>
+            <label>Email :</label>
+            <input type="email" /><br><br>
+            <p id="email_error"></p>
+            <button id="submit_btn" type="submit">Submit</button>
+        </form>
+        <p id="name_value"></p>
+        <p id="email_value"></p>
+    </div>
+    <!-- // 7. Live preview: As user types name, show it in a heading below. -->
+    <h3>7. Live preview: As user types name, show it in a heading below.</h3>
+    <div>
+        <input type="text" id="live_data">
+        <p id="live_value"> </p>
+    </div>
+
+    <!-- // 8. Disable the submit button until all fields are filled. -->
+    <h3>8. Disable the submit button until all fields are filled.</h3>
+    <div>
+        <form action="" id ="myform">
+            <label for="">Name :</label>
+            <input type="text" id="name"><br><br>
+            <label for="">Mobile Number :</label>
+            <input type="number" name="" id="mob_number"><br><br>
+            <button type="submit"  disabled id="submit_button">Submit</button>
+        </form>
+    </div>
+
+    <!-- // 9. Form with password and confirm password - show error if mismatch. -->
+    <!-- 
+    <h3> 9. Form with password and confirm password - show error if mismatch.</h3>
+    <div>
+        <form action="">
+            <label for="">Email Id :</label>
+            <input type="text" id="mail"><br><br>
+            <label for="">Password :</label>
+            <input type="password" id="pass">
+            <input type="checkbox" onclick='pass.type=this.checked ? "text" : "password" '>
+            <button id="show">show</button><br><br>
+            <label for="">Confirm password :</label>
+            <input type="password" id="con_pass"><br><br>
+            <p id="mismatch_error"></p>
+            <button type="submit" id="submit_nine">Submit</button>
+        </form>
+    </div> -->
+
+    <!-- // 10. Form submit should add entered data into a table dynamically. -->
+
+    <h3>10. Form submit should add entered data into a table dynamically.</h3>
+    <div>
+        <form action="" id="form">
+            <label for="">Employee Id :</label>
+            <input type="text" id="emp_id" required><br><br>
+            <label for="">Employee Name :</label>
+            <input type="text" id=emp_name><br><br>
+            <label for="">Salary :</label>
+            <input type="text" id="salary"><br><br>
+            <label for="">Department :</label>
+            <input type="text" id="dept"><br><br>
+            <button type="submit" id="emp_submit">Submit</button>
+            <p id="error_msg" style="color: red; display: none;">Employee id Filed is empty</p>
+        </form>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Department</th>
+            </tr>
+            <tbody id="tablebody"></tbody>
+        </table>
+    </div>
+    <h2> Part C - Validation and Advanced DOM</h2>
+    <h3> 11. Create a textarea with character limit (100) and show remaining characters dynamically.</h3>
+    <div>
+        <textarea name="" id="text_area" placeholder="Max 100 characters only"></textarea><br>
+
+        <p id="show_textarea">100 characters remaining</button>
+    </div>
+    <!-- // 12. Build a login form - if wrong password entered 3 times, disable submit button. -->
+    <h3>12. Build a login form - if wrong password entered 3 times, disable submit button.</h3>
+
+    <!-- <div>
+        <form action="">
+            <label for="">Email Id :</label>
+            <input type="text" id="mail"><br><br>
+            <label for="">Password :</label>
+            <input type="password" id="pass">
+            <input type="checkbox" onclick='pass.type=this.checked ? "text" : "password" '>
+            <button id="show">show</button><br><br>
+            <label for="">Confirm password :</label>
+            <input type="password" id="con_pass"><br><br>
+            <p id="mismatch_error"></p>
+            <button type="submit" id="submit_nine">Submit</button>
+        </form>
+    </div> -->
+    <form id="loginForm">
+        <input type="email" id="mail" placeholder="Email" required><br><br>
+        <input type="password" id="pass" placeholder="Password" required>
+        <button id="show">Show Password</button><br><br>
+        <input type="password" id="con_pass" placeholder="Confirm Password" required><br><br>
+        <p id="mismatch_error" style="color:red"></p>
+        <button id="submit_nine">Submit</button>
+    </form>
+
+    <script>
+        const mail = document.getElementById("mail");
+        const pass = document.getElementById("pass");
+        const conpass = document.getElementById("con_pass");
+        const show = document.getElementById("show");
+        const mismatcherror = document.getElementById("mismatch_error");
+        const submitnine = document.getElementById("submit_nine");
+
+        let wrongAttempts = 0; // counter for wrong password
+
+        // Show password button
+        show.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (pass.type === "password") pass.type = "text";
+            else pass.type = "password";
+        });
+
+        // Submit button logic
+        submitnine.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (pass.value === conpass.value) {
+                mismatcherror.style.display = "none";
+                alert("Password Correct. Form Submitted!");
+                wrongAttempts = 0; // reset counter
+            } else {
+                wrongAttempts++;
+                mismatcherror.innerText = `Password Mismatch! Attempt ${wrongAttempts} of 3.`;
+                mismatcherror.style.color = "red";
+
+                if (wrongAttempts >= 3) {
+                    submitnine.disabled = true;
+                    mismatcherror.innerText = "Too many wrong attempts. Submit disabled!";
+                }
+            }
+        });
+    </script>
+
+    <script src="DOMTASK1.js">
+
+
+        // 13. Dropdown with countries - on selection, show respective flag image using DOM.
+
+
+        // 14. Checkbox 'I Agree' must be ticked before form submission.
+        // 15. Create a form where marks of 3 subjects are entered - calculate total & average dynamically.
+        // Part D - Real-World DOM Challenges
+        // 16. Make a todo-list: Add items dynamically from input field.
+        // 18. Create FAQ expand/collapse section using DOM toggle.
+        // 19. Add an image upload field - preview selected image in <img> tag before submit.
+        // 20. Create a survey form with multiple checkboxes (like hobbies) and show selected options
+        // 17. On clicking a button, create a new div box with random color each time.
+        // dynamically
+
+    </script>
+</body>
+
+</html>

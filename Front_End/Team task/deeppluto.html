@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluto: The Distant World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0e17;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            animation: stars 60s linear infinite;
+        }
+
+        @keyframes stars {
+            from { background-position: 0 0, 40px 60px, 130px 270px; }
+            to { background-position: 550px 550px, 390px 410px, 380px 520px; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            min-height: 100vh;
+        }
+
+        header {
+            grid-column: 1 / 4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(102, 166, 214, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #66a6d6, #8a5ce6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(102, 166, 214, 0.5);
+        }
+
+        .logo-icon {
+            font-size: 2.8rem;
+            color: #8a5ce6;
+            filter: drop-shadow(0 0 10px rgba(138, 92, 230, 0.7));
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #9ec9eb;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #0a0e17;
+            background: linear-gradient(45deg, #66a6d6, #8a5ce6);
+            box-shadow: 0 0 15px rgba(102, 166, 214, 0.7);
+        }
+
+        .left-panel, .right-panel {
+            background: rgba(16, 24, 39, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 0 25px rgba(102, 166, 214, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 166, 214, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .left-panel {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .right-panel {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .panel-title {
+            font-size: 1.8rem;
+            color: #66a6d6;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid #8a5ce6;
+            padding-bottom: 10px;
+        }
+
+        .pluto-img {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pluto-img img {
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .pluto-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .info-card {
+            background: rgba(26, 36, 56, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #8a5ce6;
+        }
+
+        .info-card h3 {
+            color: #8a5ce6;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .fact-list {
+            list-style: none;
+        }
+
+        .fact-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(102, 166, 214, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .fact-list i {
+            color: #66a6d6;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .content-section {
+            background: rgba(16, 24, 39, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 0 25px rgba(102, 166, 214, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 166, 214, 0.2);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #66a6d6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .content-highlight {
+            background: linear-gradient(45deg, rgba(102, 166, 214, 0.2), rgba(138, 92, 230, 0.2));
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #66a6d6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: rgba(26, 36, 56, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 166, 214, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8a5ce6;
+            margin: 10px 0;
+        }
+
+        .register-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #66a6d6, #8a5ce6);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(102, 166, 214, 0.4);
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 166, 214, 0.6);
+        }
+
+        footer {
+            grid-column: 1 / 4;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(102, 166, 214, 0.5);
+            font-size: 1.1rem;
+            color: #9ec9eb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr 2fr;
+            }
+            .right-panel {
+                grid-column: 1 / 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .left-panel, .right-panel {
+                grid-column: 1;
+            }
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Registration Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 23, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: rgba(26, 36, 56, 0.95);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 50px rgba(102, 166, 214, 0.5);
+            border: 2px solid #8a5ce6;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #66a6d6;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #8a5ce6;
+        }
+
+        .modal-title {
+            text-align: center;
+            color: #66a6d6;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #9ec9eb;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(102, 166, 214, 0.5);
+            background: rgba(16, 24, 39, 0.8);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #8a5ce6;
+            box-shadow: 0 0 10px rgba(138, 92, 230, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #66a6d6, #8a5ce6);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 166, 214, 0.4);
+        }
+
+        /* Animation for form elements */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .form-group:nth-child(2) { animation-delay: 0.1s; }
+        .form-group:nth-child(3) { animation-delay: 0.2s; }
+        .form-group:nth-child(4) { animation-delay: 0.3s; }
+        .form-group:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-planet-moon logo-icon"></i>
+                <h1>Pluto Explorer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Discovery</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Mission</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="left-panel">
+            <h2 class="panel-title">Pluto Profile</h2>
+            <div class="pluto-img">
+                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pluto from space">
+            </div>
+            <div class="info-card">
+                <h3>Historical Facts</h3>
+                <ul class="fact-list">
+                    <li><i class="fas fa-calendar-day"></i> Discovered in 1930 by Clyde Tombaugh</li>
+                    <li><i class="fas fa-user-astronaut"></i> Named by an 11-year-old girl</li>
+                    <li><i class="fas fa-ruler-combined"></i> Classified as a dwarf planet in 2006</li>
+                    <li><i class="fas fa-space-shuttle"></i> New Horizons mission flew by in 2015</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Quick Facts</h3>
+                <ul class="fact-list">
+                    <li><i class="fas fa-temperature-low"></i> Avg. Temperature: -232°C</li>
+                    <li><i class="fas fa-clock"></i> Day: 153.3 hours</li>
+                    <li><i class="fas fa-calendar-alt"></i> Year: 248 Earth years</li>
+                    <li><i class="fas fa-moon"></i> Moons: 5</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="content-section">
+                <h2>The Mysterious Dwarf Planet</h2>
+                <p>Pluto, once considered the ninth planet in our solar system, was reclassified as a dwarf planet in 2006. This distant world resides in the Kuiper Belt, a region beyond Neptune filled with icy bodies and dwarf planets.</p>
+                
+                <div class="content-highlight">
+                    <p>Despite its small size, Pluto has a complex and varied surface with mountains, valleys, plains, and craters. It's known for its heart-shaped glacier, called Tombaugh Regio, which is larger than the state of Texas.</p>
+                </div>
+                
+                <p>NASA's New Horizons spacecraft provided the first close-up images of Pluto in 2015, revolutionizing our understanding of this distant world. The mission revealed that Pluto is geologically active with icy volcanoes and possible subsurface oceans.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Physical Characteristics</h2>
+                <p>Pluto is about two-thirds the diameter of Earth's moon and has a thin atmosphere composed mainly of nitrogen, methane, and carbon monoxide. This atmosphere freezes and collapses to the surface when Pluto is farthest from the Sun.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <i class="fas fa-weight-hanging"></i>
+                        <div class="stat-value">0.00218</div>
+                        <div class="stat-label">Earth Masses</div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-ruler"></i>
+                        <div class="stat-value">2,377 km</div>
+                        <div class="stat-label">Diameter</div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-temperature-low"></i>
+                        <div class="stat-value">-232°C</div>
+                        <div class="stat-label">Average Temp</div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-road"></i>
+                        <div class="stat-value">5.9B km</div>
+                        <div class="stat-label">Distance from Sun</div>
+                    </div>
+                </div>
+            </section>
+
+            <button class="register-btn" id="registerBtn">
+                <i class="fas fa-user-astronaut"></i> Register for Planetary Insights
+            </button>
+        </main>
+
+        <aside class="right-panel">
+            <h2 class="panel-title">Exploration Timeline</h2>
+            <div class="info-card">
+                <h3>New Horizons Mission</h3>
+                <ul class="fact-list">
+                    <li><i class="fas fa-rocket"></i> Launched: January 19, 2006</li>
+                    <li><i class="fas fa-space-shuttle"></i> Flyby: July 14, 2015</li>
+                    <li><i class="fas fa-camera"></i> First close-up images</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Speed: 58,536 km/h</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>Key Discoveries</h3>
+                <ul class="fact-list">
+                    <li><i class="fas fa-mountain"></i> Ice mountains up to 3,500m high</li>
+                    <li><i class="fas fa-heart"></i> Large heart-shaped nitrogen glacier</li>
+                    <li><i class="fas fa-wind"></i> Blue atmospheric haze layers</li>
+                    <li><i class="fas fa-snowflake"></i> Possible cryovolcanism</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>Future Missions</h3>
+                <ul class="fact-list">
+                    <li><i class="fas fa-satellite"></i> Orbiter mission proposed for 2030s</li>
+                    <li><i class="fas fa-landmark"></i> Possible lander mission</li>
+                    <li><i class="fas fa-water"></i> Search for subsurface ocean</li>
+                    <li><i class="fas fa-life-ring"></i> Study of potential habitability</li>
+                </ul>
+            </div>
+        </aside>
+
+        <footer>
+            <p>© 2023 Pluto Explorer - An immersive journey to the distant dwarf planet</p>
+            <p>Created for educational purposes | Follow us on <i class="fab fa-twitter"></i> <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i></p>
+        </footer>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Space Explorer Registration</h2>
+            
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" placeholder="Create a secure password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="planet">Which planet fascinates you most?</label>
+                    <select id="planet" required>
+                        <option value="">Select a planet</option>
+                        <option value="mercury">Mercury</option>
+                        <option value="venus">Venus</option>
+                        <option value="earth">Earth</option>
+                        <option value="mars">Mars</option>
+                        <option value="jupiter">Jupiter</option>
+                        <option value="saturn">Saturn</option>
+                        <option value="uranus">Uranus</option>
+                        <option value="neptune">Neptune</option>
+                        <option value="pluto">Pluto</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discovery">When was Pluto discovered?</label>
+                    <input type="number" id="discovery" placeholder="Enter year" min="1500" max="2023" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Register for Mission</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('registrationModal');
+        const registerBtn = document.getElementById('registerBtn');
+        const closeModal = document.getElementById('closeModal');
+        const form = document.getElementById('registrationForm');
+        
+        registerBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const discoveryYear = document.getElementById('discovery').value;
+            
+            if (discoveryYear == 1930) {
+                alert('Registration successful! Welcome to the Pluto Explorer mission.');
+                modal.style.display = 'none';
+                form.reset();
+            } else {
+                alert('Incorrect discovery year for Pluto. Please try again.');
+            }
+        });
+        
+        // Add animation to elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.content-section, .info-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+        
+        // Add show class when elements are in view
+        const observedElements = document.querySelectorAll('.content-section, .info-card');
+        observedElements.forEach(el => {
+            el.addEventListener('transitionend', () => {
+                if (el.classList.contains('show')) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

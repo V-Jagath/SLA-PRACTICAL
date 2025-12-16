@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeConnect - Blood & Organ Donation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blood-red': '#DC2626',
+                        'medical-blue': '#2563EB',
+                        'success-green': '#16A34A',
+                        'warning-orange': '#EA580C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for better accessibility */
+        .btn-large {
+            min-height: 60px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .blood-type-btn {
+            min-height: 80px;
+            min-width: 80px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .section-hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .bg-white { background-color: #ffffff !important; }
+            .text-gray-900 { color: #000000 !important; }
+            .border-gray-300 { border-color: #000000 !important; }
+        }
+        
+        /* Large text support */
+        @media (prefers-reduced-motion: no-preference) {
+            .smooth-transition {
+                transition: all 0.2s ease;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b-2 border-blood-red">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blood-red rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">❤️</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-900">LifeConnect</h1>
+                </div>
+                <button onclick="showSection('home')" class="text-medical-blue hover:text-blue-700 font-semibold">
+                    🏠 Home
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        
+        <!-- Home Section -->
+        <section id="home" class="text-center space-y-8">
+            <div class="space-y-4">
+                <h2 class="text-4xl font-bold text-gray-900">Save Lives Today</h2>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                    Connect people who need blood or organs with nearby volunteers. 
+                    Quick, safe, and free.
+                </p>
+            </div>
+            
+            <!-- Main Action Buttons -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <button onclick="showSection('emergency')" 
+                        class="btn-large bg-blood-red hover:bg-red-700 text-white rounded-xl shadow-lg smooth-transition transform hover:scale-105 p-6">
+                    <div class="text-4xl mb-2">🚨</div>
+                    <div class="text-xl font-bold">I Need Help</div>
+                    <div class="text-sm opacity-90">Emergency blood/organ need</div>
+                </button>
+                
+                <button onclick="showSection('volunteer')" 
+                        class="btn-large bg-medical-blue hover:bg-blue-700 text-white rounded-xl shadow-lg smooth-transition transform hover:scale-105 p-6">
+                    <div class="text-4xl mb-2">🤝</div>
+                    <div class="text-xl font-bold">I Want to Help</div>
+                    <div class="text-sm opacity-90">Become a volunteer</div>
+                </button>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 text-center">
+                <div class="p-4">
+                    <div class="text-3xl mb-2">🔒</div>
+                    <h3 class="font-semibold text-gray-900">Safe & Private</h3>
+                    <p class="text-gray-600">Your information is protected</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl mb-2">⚡</div>
+                    <h3 class="font-semibold text-gray-900">Fast Response</h3>
+                    <p class="text-gray-600">Connect in minutes</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl mb-2">🆓</div>
+                    <h3 class="font-semibold text-gray-900">Always Free</h3>
+                    <p class="text-gray-600">No cost to use</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Section -->
+        <section id="emergency" class="section-hidden space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-blood-red mb-2">Emergency Help</h2>
+                <p class="text-lg text-gray-700">We'll find volunteers near you quickly</p>
+            </div>
+            
+            <!-- Step 1: Blood Type Selection -->
+            <div id="emergency-step1" class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+                    Step 1: What blood type do you need?
+                </h3>
+                <div class="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                    <button onclick="selectBloodType('A+')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">A+</button>
+                    <button onclick="selectBloodType('A-')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">A-</button>
+                    <button onclick="selectBloodType('B+')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">B+</button>
+                    <button onclick="selectBloodType('B-')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">B-</button>
+                    <button onclick="selectBloodType('AB+')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">AB+</button>
+                    <button onclick="selectBloodType('AB-')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">AB-</button>
+                    <button onclick="selectBloodType('O+')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">O+</button>
+                    <button onclick="selectBloodType('O-')" class="blood-type-btn bg-gray-100 hover:bg-blood-red hover:text-white border-2 border-gray-300 rounded-lg smooth-transition">O-</button>
+                </div>
+                <div class="text-center mt-4">
+                    <button onclick="selectBloodType('ORGAN')" class="btn-large bg-warning-orange hover:bg-orange-600 text-white rounded-lg px-8 py-3 smooth-transition">
+                        🫀 Organ Donation Needed
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Location -->
+            <div id="emergency-step2" class="section-hidden bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+                    Step 2: Where are you located?
+                </h3>
+                <div class="space-y-4 max-w-md mx-auto">
+                    <button onclick="getLocation()" class="w-full btn-large bg-success-green hover:bg-green-600 text-white rounded-lg smooth-transition">
+                        📍 Use My Current Location
+                    </button>
+                    <div class="text-center text-gray-500">or</div>
+                    <input type="text" id="manual-location" placeholder="Enter your city or area" 
+                           class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none">
+                    <button onclick="proceedWithLocation()" class="w-full btn-large bg-medical-blue hover:bg-blue-700 text-white rounded-lg smooth-transition">
+                        Continue ➡️
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Contact -->
+            <div id="emergency-step3" class="section-hidden bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
+                    Step 3: How can volunteers contact you?
+                </h3>
+                <div class="space-y-4 max-w-md mx-auto">
+                    <input type="tel" id="phone-number" placeholder="Your phone number" 
+                           class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none">
+                    <textarea id="additional-info" placeholder="Additional information (optional)" 
+                              class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none h-24 resize-none"></textarea>
+                    <button onclick="submitEmergency()" class="w-full btn-large bg-blood-red hover:bg-red-700 text-white rounded-lg smooth-transition">
+                        🚨 Find Volunteers Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Registration Section -->
+        <section id="volunteer" class="section-hidden space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-medical-blue mb-2">Become a Volunteer</h2>
+                <p class="text-lg text-gray-700">Help save lives in your community</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-md mx-auto">
+                <form id="volunteer-form" class="space-y-4">
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2">Your Name</label>
+                        <input type="text" id="volunteer-name" required
+                               class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2">Your Blood Type</label>
+                        <div class="grid grid-cols-4 gap-2">
+                            <button type="button" onclick="selectVolunteerBloodType('A+')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">A+</button>
+                            <button type="button" onclick="selectVolunteerBloodType('A-')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">A-</button>
+                            <button type="button" onclick="selectVolunteerBloodType('B+')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">B+</button>
+                            <button type="button" onclick="selectVolunteerBloodType('B-')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">B-</button>
+                            <button type="button" onclick="selectVolunteerBloodType('AB+')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">AB+</button>
+                            <button type="button" onclick="selectVolunteerBloodType('AB-')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">AB-</button>
+                            <button type="button" onclick="selectVolunteerBloodType('O+')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">O+</button>
+                            <button type="button" onclick="selectVolunteerBloodType('O-')" class="blood-type-btn bg-gray-100 hover:bg-medical-blue hover:text-white border-2 border-gray-300 rounded-lg smooth-transition text-sm">O-</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2">Phone Number</label>
+                        <input type="tel" id="volunteer-phone" required
+                               class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-2">Your Location</label>
+                        <input type="text" id="volunteer-location" placeholder="City or area" required
+                               class="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-medical-blue focus:outline-none">
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" id="volunteer-consent" required class="mt-2 w-5 h-5">
+                        <label for="volunteer-consent" class="text-gray-700">
+                            I agree to be contacted for blood/organ donation emergencies and understand this is voluntary.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-large bg-medical-blue hover:bg-blue-700 text-white rounded-lg smooth-transition">
+                        ✅ Register as Volunteer
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Volunteers Display Section -->
+        <section id="volunteers-display" class="section-hidden space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-success-green mb-2">Volunteers Found!</h2>
+                <p class="text-lg text-gray-700">Here are volunteers near you</p>
+            </div>
+            
+            <div id="volunteers-list" class="space-y-4">
+                <!-- Volunteers will be populated here -->
+            </div>
+            
+            <div class="text-center">
+                <button onclick="showSection('home')" class="btn-large bg-gray-600 hover:bg-gray-700 text-white rounded-lg px-8 py-3 smooth-transition">
+                    🏠 Back to Home
+                </button>
+            </div>
+        </section>
+
+        <!-- Success Messages -->
+        <div id="success-message" class="section-hidden bg-success-green text-white p-6 rounded-xl text-center">
+            <div class="text-4xl mb-2">✅</div>
+            <h3 class="text-xl font-bold mb-2">Success!</h3>
+            <p id="success-text" class="text-lg"></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="mb-4">
+                <h3 class="text-xl font-bold mb-2">LifeConnect</h3>
+                <p class="text-gray-300">Connecting lives, saving futures</p>
+            </div>
+            <div class="text-sm text-gray-400">
+                <p>Emergency? Call your local emergency number immediately.</p>
+                <p class="mt-2">This platform connects volunteers only. Always verify with medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let selectedBloodType = '';
+        let selectedVolunteerBloodType = '';
+        let userLocation = '';
+        
+        // Sample volunteer data (in real app, this would come from a database)
+        const sampleVolunteers = [
+            { name: "Sarah M.", bloodType: "O+", location: "Downtown", distance: "0.5 km", phone: "555-0123" },
+            { name: "John D.", bloodType: "A+", location: "City Center", distance: "1.2 km", phone: "555-0456" },
+            { name: "Maria L.", bloodType: "B+", location: "North Side", distance: "2.1 km", phone: "555-0789" },
+            { name: "Ahmed K.", bloodType: "O-", location: "South Area", distance: "3.0 km", phone: "555-0321" }
+        ];
+        
+        // Navigation functions
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = ['home', 'emergency', 'volunteer', 'volunteers-display', 'success-message'];
+            sections.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.add('section-hidden');
+                }
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('section-hidden');
+                targetSection.classList.add('fade-in');
+            }
+            
+            // Reset emergency steps
+            if (sectionId === 'emergency') {
+                showEmergencyStep(1);
+            }
+        }
+        
+        function showEmergencyStep(step) {
+            // Hide all emergency steps
+            for (let i = 1; i <= 3; i++) {
+                const stepElement = document.getElementById(`emergency-step${i}`);
+                if (stepElement) {
+                    stepElement.classList.add('section-hidden');
+                }
+            }
+            
+            // Show current step
+            const currentStep = document.getElementById(`emergency-step${step}`);
+            if (currentStep) {
+                currentStep.classList.remove('section-hidden');
+                currentStep.classList.add('fade-in');
+            }
+        }
+        
+        // Blood type selection for emergency
+        function selectBloodType(bloodType) {
+            selectedBloodType = bloodType;
+            
+            // Visual feedback
+            document.querySelectorAll('.blood-type-btn').forEach(btn => {
+                btn.classList.remove('bg-blood-red', 'text-white');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            if (bloodType !== 'ORGAN') {
+                event.target.classList.remove('bg-gray-100');
+                event.target.classList.add('bg-blood-red', 'text-white');
+            } else {
+                event.target.classList.remove('bg-warning-orange');
+                event.target.classList.add('bg-orange-600');
+            }
+            
+            // Proceed to next step
+            setTimeout(() => {
+                showEmergencyStep(2);
+            }, 500);
+        }
+        
+        // Blood type selection for volunteer
+        function selectVolunteerBloodType(bloodType) {
+            selectedVolunteerBloodType = bloodType;
+            
+            // Visual feedback
+            document.querySelectorAll('#volunteer .blood-type-btn').forEach(btn => {
+                btn.classList.remove('bg-medical-blue', 'text-white');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            event.target.classList.remove('bg-gray-100');
+            event.target.classList.add('bg-medical-blue', 'text-white');
+        }
+        
+        // Location functions
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        userLocation = `${position.coords.latitude}, ${position.coords.longitude}`;
+                        showSuccessMessage("Location detected successfully!");
+                        setTimeout(() => {
+                            showEmergencyStep(3);
+                        }, 1500);
+                    },
+                    function(error) {
+                        alert("Could not get your location. Please enter it manually.");
+                    }
+                );
+            } else {
+                alert("Location services not supported. Please enter your location manually.");
+            }
+        }
+        
+        function proceedWithLocation() {
+            const manualLocation = document.getElementById('manual-location').value.trim();
+            if (manualLocation) {
+                userLocation = manualLocation;
+                showEmergencyStep(3);
+            } else {
+                alert("Please enter your location or use current location.");
+            }
+        }
+        
+        // Emergency submission
+        function submitEmergency() {
+            const phoneNumber = document.getElementById('phone-number').value.trim();
+            const additionalInfo = document.getElementById('additional-info').value.trim();
+            
+            if (!phoneNumber) {
+                alert("Please enter your phone number so volunteers can contact you.");
+                return;
+            }
+            
+            // Simulate finding volunteers
+            showSuccessMessage("Finding volunteers near you...");
+            
+            setTimeout(() => {
+                displayVolunteers();
+            }, 2000);
+        }
+        
+        // Display volunteers
+        function displayVolunteers() {
+            const volunteersList = document.getElementById('volunteers-list');
+            volunteersList.innerHTML = '';
+            
+            // Filter volunteers by blood type compatibility (simplified)
+            let compatibleVolunteers = sampleVolunteers;
+            if (selectedBloodType !== 'ORGAN') {
+                compatibleVolunteers = sampleVolunteers.filter(v => 
+                    v.bloodType === selectedBloodType || v.bloodType === 'O-' || 
+                    (selectedBloodType.includes('+') && v.bloodType.includes('+'))
+                );
+            }
+            
+            compatibleVolunteers.forEach(volunteer => {
+                const volunteerCard = document.createElement('div');
+                volunteerCard.className = 'bg-white rounded-xl shadow-lg p-6 border-l-4 border-success-green';
+                volunteerCard.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">${volunteer.name}</h3>
+                            <p class="text-lg text-blood-red font-semibold">Blood Type: ${volunteer.bloodType}</p>
+                            <p class="text-gray-600">📍 ${volunteer.location} (${volunteer.distance} away)</p>
+                        </div>
+                        <div class="text-right">
+                            <a href="tel:${volunteer.phone}" class="btn-large bg-success-green hover:bg-green-600 text-white rounded-lg px-6 py-3 smooth-transition inline-block">
+                                📞 Call Now
+                            </a>
+                        </div>
+                    </div>
+                `;
+                volunteersList.appendChild(volunteerCard);
+            });
+            
+            showSection('volunteers-display');
+        }
+        
+        // Volunteer registration
+        document.getElementById('volunteer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('volunteer-name').value.trim();
+            const phone = document.getElementById('volunteer-phone').value.trim();
+            const location = document.getElementById('volunteer-location').value.trim();
+            const consent = document.getElementById('volunteer-consent').checked;
+            
+            if (!name || !phone || !location || !selectedVolunteerBloodType || !consent) {
+                alert("Please fill in all fields and select your blood type.");
+                return;
+            }
+            
+            // Simulate registration
+            showSuccessMessage("Thank you for registering! You'll be notified when someone needs your help.");
+            
+            setTimeout(() => {
+                showSection('home');
+                // Reset form
+                document.getElementById('volunteer-form').reset();
+                selectedVolunteerBloodType = '';
+                document.querySelectorAll('#volunteer .blood-type-btn').forEach(btn => {
+                    btn.classList.remove('bg-medical-blue', 'text-white');
+                    btn.classList.add('bg-gray-100');
+                });
+            }, 3000);
+        });
+        
+        // Success message function
+        function showSuccessMessage(message) {
+            document.getElementById('success-text').textContent = message;
+            showSection('success-message');
+        }
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                showSection('home');
+            }
+        });
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
+

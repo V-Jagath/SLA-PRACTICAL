@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment Test</title>
+    <style>
+        * {
+            margin: 0px;
+            border: 0px;
+            padding: opx;
+        }
+
+        .box-head {
+
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: black;
+            color: white;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navbar {
+            background-color: blue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+
+        }
+
+        .links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media(max-width:288px) {
+            .links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- center a div element using css
+    <div class="box-head">
+        <div class="box">
+            <p>Box Model</p>
+        </div>
+    </div> -->
+
+
+    <!-- Responsive naviation bar -->
+    <nav>
+        <div id="navbar">
+            <h2>LOGO</h2>
+            <div class=" links">
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <button id="nav_btn" style="padding: 8px;background-color: black;color: white;">Hide Nav Bar</button>
+    <!-- 
+    <div id="card_head"
+        style=" background-color: white; border: solid black 1px; border-radius: 10px; width: 200px; height: 300px; display: flex; justify-content: center;align-items:end;">
+        <div id="card_body">
+            <button id="cart_btn"
+                style="padding: 10px;width: 150px; border: 1px solid; border-radius: 10px;margin-bottom: 10px;">Add
+                to
+                Cart</button>
+        </div>
+    </div> -->
+    <script>
+
+        const nav1 = document.getElementById("navbar")
+        const atag = document.getElementById("links")
+        const navbtn = document.getElementById("nav_btn")
+        nav_btn.addEventListener('click', () => {
+            if (nav1.style.display === "flex") {
+                nav1.style.display = "none"
+                navbtn.innerHTML = "Show Nav bar"
+
+            }
+            else {
+                nav1.style.display = "flex"
+                navbtn.innerHTML = "Hide Nav bar"
+            }
+        })
+
+        // const cardhead = document.getElementById("card_head");
+        // const cardbody = document.getElementById("card_body");
+        // const cartbtn = document.getElementById("cart_btn")
+        // cartbtn.addEventListener('click', () => {
+        //     if (cardhead.style.backgroundColor === "white") {
+        //         cardhead.style.backgroundColor = "green"
+        //         alert("Added To Cart")
+        //     }
+        //     else {
+        //         cardhead.style.backgroundColor = "white"
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

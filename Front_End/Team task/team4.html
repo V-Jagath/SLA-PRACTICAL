@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Planet Pluto - Future Home</title>
+  <style>
+    /* 🌌 Background: Animated Stars */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, #0d1b2a, #1b263b, #0a0f2c);
+      animation: spaceMove 30s linear infinite;
+      z-index: -2;
+    }
+    @keyframes spaceMove {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-200px, -200px); }
+    }
+
+    /* 🌍 Glowing Planet Effect Behind Title */
+    h1 {
+      font-size: 2.8rem;
+      margin: 40px 0 20px;
+      color: #00eaff;
+      text-shadow: 0 0 20px #00eaff, 0 0 40px #0077ff;
+      position: relative;
+      display: inline-block;
+    }
+    h1::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00eaff, #0077ff, #000);
+      filter: blur(60px);
+      z-index: -1;
+      animation: glow 5s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { transform: translateX(-50%) scale(1); opacity: 0.8; }
+      to   { transform: translateX(-50%) scale(1.2); opacity: 1; }
+    }
+
+    main {
+      width: 85%;
+      margin: auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    h2, h3 {
+      color: #ffdd57;
+      margin-top: 35px;
+      text-shadow: 0 0 10px #ffdd57;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    img {
+      width: 60%;
+      max-width: 500px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.7);
+      transition: transform 0.4s ease;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    ul, ol {
+      text-align: left;
+      display: inline-block;
+      margin: 15px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
+    ul:hover, ol:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .highlight {
+      background: rgba(0, 200, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(0,200,255,0.4);
+    }
+
+    /* 🚀 Call to Action Button */
+    .cta-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      color: #fff;
+      background: linear-gradient(90deg, #00eaff, #0077ff);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00eaff;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #0077ff, #00eaff);
+      box-shadow: 0 0 25px #00eaff, 0 0 40px #0077ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🚀🌌 Welcome to Planet Pluto – Your Future Home Among the Stars</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Nh-pluto-in-true-color_2x_JPEG-edit-frame.jpg" alt="Pluto Image">
+
+    <h2>✨ Why Choose Pluto?</h2>
+    <p>Because it’s not just a planet… it’s a dream turned real.</p>
+
+    <h2>🌍 Features That Make Pluto Unique</h2>
+    <ul>
+      <li>❄️ Endless Blue Atmosphere – breathe the purest air under twin suns and glowing moons.</li>
+      <li>💎 Crystal Cities – futuristic homes that shine like diamonds at night.</li>
+      <li>🏙️ Floating Towers – live above the clouds with sky gardens and panoramic views.</li>
+      <li>🌌 Glowing Forests & Oceans – every night feels like a festival of light.</li>
+    </ul>
+
+    <h2>🏙️ Facilities for a Better Life</h2>
+    <ol>
+      <li>⚡ 100% Free Energy – powered by starlight and crystal cores.</li>
+      <li>🚝 No Traffic Jams – hover trains, sky-bikes, and teleportation hubs.</li>
+      <li>🏥 Smart Healthcare – healing centers with herbal + futuristic energy medicine.</li>
+      <li>🎓 Future Learning – hologram classrooms guided by AI mentors.</li>
+      <li>☮️ Universal Peace – no war, no pollution, only harmony.</li>
+    </ol>
+
+    <h2>🌟 Why People Love Pluto</h2>
+    <ul>
+      <li>🧑‍🚀 Explorers & adventurers – want something new.</li>
+      <li>🌱 Nature lovers – want eco-friendly life. </li>
+      <li>🌃 Dreamers & artists – want inspiration from crystal skies.</li>
+      <li>👨‍👩‍👧 Families – want safe, peaceful living. </li>
+      <li>💡 No currency – trade knowledge, skills, and art.</li>
+      <li>🎆 Festivals of light every week – the sky dances in colors.</li>
+      <li>🤝 Community built on happiness, balance, and respect.</li>
+      <li>🦋 Wildlife that glows and sings with nature.</li>
+    </ul>
+
+    <h3>🎉 The Invitation</h3>
+    <p>🌌 “Leave behind the ordinary. Step into the extraordinary.”</p>
+    <p>🚀 Come live, explore, and grow in Planet Pluto – The Blue Paradise Beyond the Stars.</p>
+
+    <div class="highlight">
+      <h2>🌠 Key Selling Points</h2>
+      <p>❄️ Crystal Beauty – Glittering ice plains and frozen volcanoes that shine like diamonds.<br>
+      🏙️ Underground Cities – Warm, safe, and futuristic living spaces beneath the surface.<br>
+      🌌 Aurora Nights – Endless glowing skies and cosmic light shows.<br>
+      🌱 Eco-Friendly Life – Bio-domes with glowing plants and pure water from frozen lakes.<br>
+      🛡️ Peace & Privacy – Far away from wars and pollution of Earth.<br>
+      🌑 Moons as Guardians – Charon and Pluto’s moons add to its mystical charm.</p>
+    </div>
+
+    <!-- 🚀 Call to Action -->
+    <a href="deeppluto.html" class="cta-btn">🌌 Join Pluto Now</a>
+  </main>
+
+  <footer>
+    🌌 Pluto: The Last Frontier, The First Paradise.  
+  </footer>
+</body>
+</html>

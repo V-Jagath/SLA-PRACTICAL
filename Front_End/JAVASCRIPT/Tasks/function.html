@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+</head>
+
+<body>
+    <script>
+        // Normal Function 
+        // SYNTAX
+        // functionName(parameters) {
+        //     code
+        // }
+
+        function dinesh(emp, role, salary) {
+            return role + salary
+        }
+        console.log(dinesh("name", "designer", 30000))
+
+        function Greeting(name) {
+            return `hello ${name} welcome`
+        }
+        console.log(Greeting("jagath"))
+
+        function multiple(a, b, c) {
+            return a * b * c
+        }
+        console.log(multiple(5, 7, 4))
+
+        function karthi(a, b) {
+            name = a + b
+            return name
+        }
+        console.log(karthi(10, 90))
+
+        function table(a, b, c) {
+            c = a + b
+            return c
+        }
+        console.log(table(1, 8))
+
+        function area(l, b) {
+
+            return l * b
+        }
+        console.log(area(10, 14))
+
+        function numberCheck(a) {
+            if (a < 0) {
+                console.log("its a negative number")
+            }
+            else if (a > 0) {
+                console.log("its a possitive number")
+            }
+            else {
+                console.log("its a zero value")
+            }
+        }
+        numberCheck(-9)
+
+        function squreNumber(a) {
+            return a*a
+        }
+        console.log(squreNumber(9))
+
+        function functionName(c, d) {
+            return c + d
+        }
+        console.log(functionName(10, 23))
+
+
+
+        // ARROW FUNCTION
+        // SYNTAX
+        // const functionName=(parameters)=>{
+        //     code
+        // }
+
+        const bill = (amount, tax) => {
+            return amount + (amount * tax);
+        };
+        
+        console.log(bill(90, 2));
+
+        const jagath = (car, bike) => {
+            return car + bike;
+        }
+        console.log(jagath(20000, 12000))
+
+        const suriya = (personal_loan, home_loan) => {
+            return loan = personal_loan + home_loan
+        }
+        console.log(suriya(23200, 17300))
+
+        const variable = (c, d, e) => {
+            return e = c + d
+        }
+        console.log(variable(1, 12, 9))
+
+        // ANONYMOUS function
+        // SYNTAX   
+        // function () {
+        // code
+        // }
+
+        const add = function (a, b) {
+            return a + b
+        }
+        console.log(add(10, 12))
+
+        const max = function (a, b) {
+            return (a > b) ? a : b
+        }
+        console.log(max(12, 24))
+
+        const multiply = function (a, b) {
+            return a * b
+        }
+        console.log(multiply(4, 7))
+
+    </script>
+</body>
+
+</html>

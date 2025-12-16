@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Lemon Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background: #fffdf7;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #f4e04d;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #e63946;
+}
+
+/* Banner */
+.banner {
+  background: url("images/banner.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banner button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #e63946;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.banner button:hover {
+  transform: scale(1.1);
+  background: #c1121f;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.features article {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.features img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  color: white;
+  padding: 20px;
+}
+
+.footer-logo {
+  height: 40px;
+}
+
+.footer-right {
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="images/logo.png" alt="Little Lemon Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Reservations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Banner -->
+    <section class="banner">
+      <h1>Fresh Flavors, Bright Atmosphere</h1>
+      <p>Experience Mediterranean cuisine like never before.</p>
+      <button>Order Now</button>
+    </section>
+
+    <!-- Three Columns -->
+    <section class="features">
+      <article>
+        <img src="images/col1.jpg" alt="Fresh Ingredients">
+        <h2>Fresh Ingredients</h2>
+        <p>We use only the freshest local produce to make every dish special.</p>
+      </article>
+      <article>
+        <img src="images/col2.jpg" alt="Family Dining">
+        <h2>Family Friendly</h2>
+        <p>A warm and welcoming place for family and friends to enjoy together.</p>
+      </article>
+      <article>
+        <img src="images/col3.jpg" alt="Authentic Taste">
+        <h2>Authentic Taste</h2>
+        <p>Our chefs bring traditional recipes to life with authentic flavors.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <img src="images/logo.png" alt="Little Lemon Small Logo" class="footer-logo">
+    </div>
+    <div class="footer-right">
+      <p>&copy; 2025 Little Lemon Restaurant. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

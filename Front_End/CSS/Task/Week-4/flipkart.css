@@ -1,0 +1,190 @@
+body {
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vh;
+}
+
+/* Overall Parent */
+.topic {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+}
+
+/* Flipkart Logo */
+.Logo img {
+    width: 160px;
+    align-items: center;
+}
+
+/* Search box */
+.search input {
+    width: 300px;
+    padding: 7px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.search button {
+    width: 50px;
+    padding: 5px;
+    border-radius: 7px;
+    margin-right: 180px;
+}
+
+/* Navication Menu like login and cart */
+.nav1 a {
+    text-decoration: none;
+    font-weight: bolder;
+    margin-right: 10px;
+}
+
+.nav1 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+
+}
+
+/* Navication Images */
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar img {
+    width: 35px;
+}
+
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart img {
+    width: 35px;
+}
+
+.seller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seller img {
+    width: 35px;
+}
+
+/* Main Page Content */
+.top-content {
+    margin: 10px;
+    background-color: cornsilk;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.top-content img {
+    width: 90px;
+    height: 100px;
+}
+
+.top-content a {
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* Iphone Content */
+.iphone {
+    padding: 30px;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.iphone img {
+    padding: 30px;
+    border-radius: 120px;
+}
+
+.mac {
+    padding: 30px;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(12, 12, 12);
+    color: rgb(250, 247, 247);
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac img {
+    padding: 30px;
+    border-radius: 120px;
+}
+
+@media(max-width:600px) {
+
+    .nav1 a {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .search {
+        width: 200px;
+        padding: 4px;
+    }
+
+     .topic {
+        display: flex;
+        flex-wrap: wrap;
+    } 
+
+    .top-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .iphone {
+        display: flex;
+        overflow: auto;
+        justify-content: top;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .mac {
+        display: flex;
+        overflow: auto;
+        justify-content: top;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+}

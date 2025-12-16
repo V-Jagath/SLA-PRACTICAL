@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+    <script>
+
+        //  Voting Eligibility: If age >= 18 -> 'Eligible to vote' else 'Not eligible'.
+        var age = 17;
+        if (age >= 18) {
+            document.write("you are eligible for vote")
+        }
+        else (
+            document.write("you are not eligibe for vote")
+        )
+        //  Student Grade System: Marks >= 90 -> A, Marks >= 60 -> B, Else -> Fail
+        var mark = 40
+        if (mark >= 100) {
+            document.write("A Grade")
+        }
+        else if (mark >= 60) {
+            document.write("B Grade")
+        }
+        else {
+            document.write("Fail")
+        }
+        //  Login Validation: If username and password match -> 'Login Successful' else 'Login Failed'.
+        var username = true
+        var password = false
+        if (username === true && password === true) {
+            document.write("Login Successfull")
+        }
+        else {
+            document.write("Login Failed")
+        }
+        //  Discount Eligibility: If age < 18 OR isStudent = true -> 'Discount Available' else 'No Discount'.
+        var age = 18
+        if (age < 18) {
+            document.write('Discount Available')
+        }
+        else {
+            document.write('No Discount')
+        }
+        // 5. Bank Withdrawal: If balance >= withdrawAmount -> 'Transaction Successful' else 'Insufficient Balance'.
+        var amount = 1100;
+        var balance = 1200;
+
+        if (balance >= amount) {
+            document.write("Transaction Successfull")
+        }
+        else {
+            document.write("Insufficient Balance")
+        }
+
+        // 6. Driving License Check: If age >= 18 -> 'License Approved' else 'Not Eligible'.
+        var age = 23;
+        if (age >= 18) {
+            document.write("License Approved")
+        }
+        else {
+            document.write("Not Eligible")
+        }
+
+        //  7. Ticket Pricing: If age <= 12 -> 'Child Ticket', else if age >= 60 -> 'Senior Ticket', else 'Adult Ticket'.
+
+        var age = 89;
+        if (age <= 12) {
+            document.write("child Ticket")
+        }
+        else if (age > 60) {
+            document.write("Senior Ticket")
+        }
+        else {
+            document.write("Adult Ticket")
+        }
+
+        //  8. Exam Result: If marks >= 90 -> 'Distinction', else if marks >= 75 -> 'First Class',
+        //  else if marks >= 35 -> 'Pass', else 'Fail'.
+        var marks = 90;
+        if (marks >= 90) {
+            document.write("Distinction")
+        }
+        else if (marks >= 75) {
+            document.write("First Class")
+        }
+        else if (marks >= 35) {
+            document.write("Pass")
+        }
+        else {
+            document.write("Fail")
+        }
+
+        //  9. Electricity Bill: If units <= 100 -> Rs. 2 / unit, else if units <= 300 -> Rs. 5 / 
+        // unit, else Rs. 8 / unit.
+        var unit = 180
+        if (unit <= 100) {
+            document.write("Electricity Bill Rs.2")
+        }
+        else if (unit <= 300) {
+            document.write("Electricity Bill Rs.5")
+        }
+        else {
+            document.write("Electricity Bill is Rs.8")
+        }
+
+        //  10. Online Shopping: If cartAmount >= 500 -> 'Free Delivery' else 'Delivery Charges Apply'.
+
+        var cartAmout = 600
+        if (cartAmout <= 500) {
+            document.write("Free Delivery")
+        }
+        else {
+            document.write("Delivery Charges Applyed")
+        }
+
+        //  Part B - Programming Based Questions
+        //  11. Largest of 3 Numbers: Use if-else if to find largest among three numbers.
+        var a = 80
+        var b = 40
+        var c = 32
+
+        if (a > b && a > c) {
+            document.write("A is Bigger")
+        }
+        else if (b > c && b > a) {
+            document.write("B is Bigger")
+        }
+        else {
+            document.write("C is Bigger")
+        }
+
+        //  12. Leap Year Check: Divisible by 4, not divisible by 100 unless divisible by 400.
+
+        //  13. Pass / Fail: If marks >= 35 -> 'Pass' else 'Fail'.
+        var mark = 30;
+        if (mark >= 35) {
+            document.write("Pass")
+        }
+        else {
+            document.write("Fail")
+        }
+        //  14. Even or Odd Check: If number % 2 == 0 -> 'Even' else 'Odd'.
+        var number = 44
+        if (number % 2 === 0) {
+            document.write("Even")
+        }
+        else {
+            document.write("Odd")
+        }
+        //  15. Positive / Negative / Zero Check.
+        var number = 34
+        if (number > 0) {
+            document.write("It's a Positive Number")
+        }
+        else if (number < 0) {
+            document.write("It's a Negative Number")
+        }
+        else {
+            document.write("It's a Zero value")
+        }
+
+        //  16. ATM Withdrawal: If amount <= balance -> 'Withdrawal Successful' else 'Insufficient Balance'.
+        var amount = 5000;
+        var balance = 7000;
+        if (amount <= balance) {
+            document.write("Withdrawal Sucessfull")
+        }
+        else {
+            document.write("Insufficient Balance")
+        }
+
+        //  17. Eligibility for Scholarship: If marks >= 85 AND familyIncome < 50000 ->
+        //  'Scholarship Granted'.
+        var mark = 90
+        var familyIncome = 30000
+        if (mark >= 85 && familyIncome < 50000) {
+            document.write("Scholarship Granted")
+        }
+        else {
+            document.write("Scholarship Not Eligible")
+        }
+
+        //  18. Weather Suggestion: If temperature > 35 -> 'Hot Day',
+        //  else if temperature < 20 -> 'Cold Day',else 'Normal Day'.
+        var temp = 10
+        if (temp > 35) {
+            document.write("Hot Day")
+        }
+        else if (temp < 20) {
+            document.write("Cold Day")
+        }
+        else {
+            docuemnt.write("Normal Day")
+        }
+        //  19. Job Application: If age >= 21 AND degree = true -> 'Eligible' 
+        // else 'Not Eligible'.
+        var age = 30
+        var degree = true
+        if (age > 21) {
+            document.write("Eligible")
+        }
+        else {
+            document.write("Not Eligible")
+        }
+        //  20. Marks Category: If marks >= 95 -> 'Outstanding', >= 80 -> 'Excellent',
+        //  >= 60 -> 'Good', >= 35 ->'Pass', else 'Fail'
+        var mark = 99
+        if (mark >= 95) {
+            document.write("Outstanding")
+        }
+        else if (mark >= 80) {
+            document.write("Excellent")
+        }
+        else if (mark >= 60) {
+            document.write("Good")
+        }
+        else if (mark >= 35) {
+            document.write("Pass")
+        }
+        else {
+            document.write("fail")
+        }
+
+    </script>
+</body>
+
+</html>

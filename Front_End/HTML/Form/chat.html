@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Base nav bar styles */
+    .navbar {
+      width: 200px;
+      background-color: #333;
+    }
+
+    .navbar a {
+      display: block;
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    /* Dropdown container - hidden by default */
+    .dropdown {
+      display: none;
+      background-color: #444;
+    }
+
+    /* Show dropdown when hovering on parent */
+    .navbar .services:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      padding-left: 30px;
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+
+    <div class="services">
+      <a href="#">Services ▼</a>
+      <div class="dropdown">
+        <a href="#">Web Design</a>
+        <a href="#">App Development</a>
+        <a href="#">SEO</a>
+        <a href="#">Marketing</a>
+      </div>
+    </div>
+
+    <a href="#">Contact</a>
+  </div>
+
+</body>
+</html>

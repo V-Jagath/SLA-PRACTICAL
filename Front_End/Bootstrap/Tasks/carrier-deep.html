@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>வழிகாட்டி - Career Guidance for Tamil Nadu Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@400;600;700&family=Hind+Madurai:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+        }
+        
+        body {
+            font-family: 'Hind Madurai', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Martel Sans', sans-serif;
+            font-weight: 700;
+        }
+        
+        .tamil-font {
+            font-family: 'Hind Madurai', 'Arial Unicode MS', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234361ee"/><path d="M0 0L100 100" stroke="white" stroke-width="0.5"/><path d="M100 0L0 100" stroke="white" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e9ecef;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: var(--success);
+            transition: width 1s ease;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+        
+        .password-strength {
+            height: 5px;
+            border-radius: 2.5px;
+            margin-top: 0.5rem;
+            background: #e9ecef;
+        }
+        
+        .password-strength-fill {
+            height: 100%;
+            border-radius: 2.5px;
+            transition: width 0.3s ease, background 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-indigo-600">வழிகாட்டி</h1>
+                <span class="ml-2 text-sm text-gray-600">Career Guidance</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#career-guidance" class="nav-link text-gray-700 hover:text-indigo-600">Career Guidance</a>
+                <a href="#it-careers" class="nav-link text-gray-700 hover:text-indigo-600">IT Careers</a>
+                <a href="#government-exams" class="nav-link text-gray-700 hover:text-indigo-600">Government Exams</a>
+                <a href="#resources" class="nav-link text-gray-700 hover:text-indigo-600">Resources</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="loginBtn" class="text-gray-700 hover:text-indigo-600">Login</button>
+                <button id="registerBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Register</button>
+                
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="py-2 text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#career-guidance" class="py-2 text-gray-700 hover:text-indigo-600">Career Guidance</a>
+                <a href="#it-careers" class="py-2 text-gray-700 hover:text-indigo-600">IT Careers</a>
+                <a href="#government-exams" class="py-2 text-gray-700 hover:text-indigo-600">Government Exams</a>
+                <a href="#resources" class="py-2 text-gray-700 hover:text-indigo-600">Resources</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-24 pb-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Empowering Rural Students of Tamil Nadu</h2>
+                <p class="text-xl mb-8">Comprehensive career guidance for IT domains and government job opportunities</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#it-careers" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100">Explore IT Careers</a>
+                    <a href="#government-exams" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-indigo-600">Government Exams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Guidance Section -->
+    <section id="career-guidance" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title mx-auto">Career Guidance</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-graduation-cap text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Education Pathways</h3>
+                    <p class="text-gray-600 mb-4">Explore various educational routes to achieve your career goals in both IT and government sectors.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Diploma courses after 10th</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Engineering and IT degrees</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Government exam eligibility</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-road text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Career Roadmaps</h3>
+                    <p class="text-gray-600 mb-4">Step-by-step guidance on how to progress in your chosen career path with clear milestones.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>IT career progression</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Government job hierarchies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Skill development plans</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-chalkboard-teacher text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Skill Development</h3>
+                    <p class="text-gray-600 mb-4">Identify and develop the skills needed to succeed in your chosen career path.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Technical skills for IT</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Exam preparation strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Soft skills development</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT Domain Career Paths -->
+    <section id="it-careers" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title mx-auto">IT Domain Career Paths</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-indigo-600">Full Stack Developer</h3>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Domain: Software Development</h4>
+                            <p class="text-gray-600 mb-4">Full Stack Developers work on both front-end and back-end portions of web applications.</p>
+                            <div class="flex items-center mb-2">
+                                <span class="text-gray-600 mr-2">Average Salary:</span>
+                                <span class="font-bold text-green-600">₹4,00,000 - ₹8,00,000 CTC</span>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Skills Required:</h4>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-1">
+                                <span>HTML/CSS/JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            
+                            <div class="flex justify-between mb-1 mt-3">
+                                <span>Backend (Node.js/Python)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                            
+                            <div class="flex justify-between mb-1 mt-3">
+                                <span>Database Management</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Learning Path:</h4>
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li>Learn fundamentals of programming</li>
+                            <li>Master front-end technologies (HTML, CSS, JS)</li>
+                            <li>Learn a back-end programming language</li>
+                            <li>Database management systems</li>
+                            <li>Framework specialization (React, Angular, etc.)</li>
+                        </ol>
+                    </div>
+                    <div class="bg-indigo-50 p-8 flex flex-col justify-center">
+                        <h4 class="text-xl font-semibold mb-4">Job Opportunities:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-building text-indigo-600 mt-1 mr-2"></i>
+                                <span>IT companies in Chennai, Coimbatore, Madurai, and Hosur</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-laptop-code text-indigo-600 mt-1 mr-2"></i>
+                                <span>Remote work opportunities with international companies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-briefcase text-indigo-600 mt-1 mr-2"></i>
+                                <span>Startups across Tamil Nadu seeking tech talent</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-semibold mb-4">Recommended Courses:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-book text-indigo-600 mt-1 mr-2"></i>
+                                    <span>NPTEL Web Development Courses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-graduation-cap text-indigo-600 mt-1 mr-2"></i>
+                                    <span>Anna University B.Tech IT programs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-certificate text-indigo-600 mt-1 mr-2"></i>
+                                    <span>CDAC Certified courses</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">Data Analyst</h3>
+                    <p class="text-gray-600 mb-4">Analyze data to help organizations make better business decisions.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Average Salary:</span>
+                        <span class="font-bold text-green-600">₹3,50,000 - ₹6,50,000 CTC</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">Cybersecurity Specialist</h3>
+                    <p class="text-gray-600 mb-4">Protect organizations from cyber threats and security breaches.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Average Salary:</span>
+                        <span class="font-bold text-green-600">₹5,00,000 - ₹9,00,000 CTC</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">Cloud Engineer</h3>
+                    <p class="text-gray-600 mb-4">Design and maintain cloud-based systems and infrastructure.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Average Salary:</span>
+                        <span class="font-bold text-green-600">₹6,00,000 - ₹12,00,000 CTC</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Exam Guide -->
+    <section id="government-exams" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title mx-auto">Government Exam Guide</h2>
+            
+            <div class="bg-gray-50 rounded-lg p-6 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-indigo-600">Sub Collector Posting</h3>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Role Overview:</h4>
+                            <p class="text-gray-600 mb-4">A Sub Collector is a prestigious administrative position in the Tamil Nadu state government, responsible for revenue administration and law and order in a subdivision.</p>
+                            <div class="flex items-center mb-2">
+                                <span class="text-gray-600 mr-2">Salary:</span>
+                                <span class="font-bold text-green-600">₹70,000 - ₹1,00,000 per month</span>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Exam Pattern:</h4>
+                        <ul class="list-disc pl-5 space-y-2 mb-6">
+                            <li>Preliminary Examination (Objective)</li>
+                            <li>Main Examination (Descriptive)</li>
+                            <li>Personal Interview</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">Preparation Strategy:</h4>
+                        <ol class="list-decimal pl-5 space-y-3 mb-6">
+                            <li>Understand the exam pattern and syllabus thoroughly</li>
+                            <li>Create a structured study plan with daily targets</li>
+                            <li>Focus on current affairs, especially related to Tamil Nadu</li>
+                            <li>Practice previous years' question papers</li>
+                            <li>Join a test series for regular evaluation</li>
+                        </ol>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Eligibility Criteria:</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Bachelor's degree from a recognized university</li>
+                            <li>Age between 21-32 years (varies by category)</li>
+                            <li>Citizen of India</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">TNPSC Group Exams</h3>
+                    <p class="text-gray-600 mb-4">Various group exams for different government positions in Tamil Nadu.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Deadline:</span>
+                        <span class="font-bold text-red-600">Varies by exam</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        View details <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">Banking Exams</h3>
+                    <p class="text-gray-600 mb-4">IBPS, SBI, and other banking sector examinations.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Deadline:</span>
+                        <span class="font-bold text-red-600">Varies by exam</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        View details <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-3 text-indigo-600">SSC Examinations</h3>
+                    <p class="text-gray-600 mb-4">Staff Selection Commission exams for various central government jobs.</p>
+                    <div class="flex items-center mb-4">
+                        <span class="text-gray-600 mr-2">Deadline:</span>
+                        <span class="font-bold text-red-600">Varies by exam</span>
+                    </div>
+                    <button class="text-indigo-600 font-semibold flex items-center">
+                        View details <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title mx-auto">Resources</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">Download Study Materials</h3>
+                    <p class="text-gray-600 mb-6">Access free study materials for various IT certifications and government exams.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 border rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-pdf text-red-500 text-2xl mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">TNPSC Group 4 Syllabus</h4>
+                                    <p class="text-sm text-gray-500">PDF - 2.4 MB</p>
+                                </div>
+                            </div>
+                            <button class="text-indigo-600 font-semibold">Download</button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 border rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-pdf text-red-500 text-2xl mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Full Stack Developer Roadmap</h4>
+                                    <p class="text-sm text-gray-500">PDF - 1.8 MB</p>
+                                </div>
+                            </div>
+                            <button class="text-indigo-600 font-semibold">Download</button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 border rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-pdf text-red-500 text-2xl mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Current Affairs Monthly Digest</h4>
+                                    <p class="text-sm text-gray-500">PDF - 3.1 MB</p>
+                                </div>
+                            </div>
+                            <button class="text-indigo-600 font-semibold">Download</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-600">Success Stories</h3>
+                    <p class="text-gray-600 mb-6">Read inspiring stories from students who achieved their career goals.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Rajesh from Madurai</h4>
+                                <p class="text-sm text-gray-500 mb-2">Now working as Full Stack Developer at Zoho</p>
+                                <p class="text-gray-600">"This platform helped me understand the IT career roadmap and prepare for interviews effectively."</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 h-12 w-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Priya from Coimbatore</h4>
+                                <p class="text-sm text-gray-500 mb-2">Cleared TNPSC Group 2 Exam</p>
+                                <p class="text-gray-600">"The exam guidance and study materials were extremely helpful in my preparation journey."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-indigo-600">Subscribe for Updates</h3>
+                <p class="text-gray-600 text-center mb-6">Get notified about new career opportunities, exam dates, and preparation tips.</p>
+                
+                <form class="max-w-lg mx-auto flex flex-col md:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">வழிகாட்டி</h3>
+                    <p class="text-indigo-200">Empowering rural students of Tamil Nadu with comprehensive career guidance.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-indigo-200 hover:text-white">Home</a></li>
+                        <li><a href="#career-guidance" class="text-indigo-200 hover:text-white">Career Guidance</a></li>
+                        <li><a href="#it-careers" class="text-indigo-200 hover:text-white">IT Careers</a></li>
+                        <li><a href="#government-exams" class="text-indigo-200 hover:text-white">Government Exams</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white">Study Materials</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white">Exam Calendar</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white">Practice Tests</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-indigo-300"></i>
+                            <span class="text-indigo-200">Chennai, Tamil Nadu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-indigo-300"></i>
+                            <span class="text-indigo-200">info@vaghigudi.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-indigo-300"></i>
+                            <span class="text-indigo-200">+91 9876543210</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-indigo-700 mt-8 pt-8 text-center text-indigo-300">
+                <p>&copy; 2023 வழிகாட்டி Career Guidance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="bg-indigo-600 text-white p-4 flex justify-between items-center">
+                <h3 class="text-xl font-semibold">Login</h3>
+                <button id="closeLoginModal" class="text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <div class="input-group">
+                    <label for="loginEmail" class="text-gray-700">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email">
+                </div>
+                
+                <div class="input-group">
+                    <label for="loginPassword" class="text-gray-700">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="rememberMe" class="mr-2">
+                        <label for="rememberMe" class="text-gray-700">Remember me</label>
+                    </div>
+                    <a href="#" class="text-indigo-600 text-sm">Forgot Password?</a>
+                </div>
+                
+                <button class="btn-primary w-full py-3">Login</button>
+                
+                <p class="text-center mt-6 text-gray-600">
+                    Don't have an account? <a href="#" id="switchToRegister" class="text-indigo-600 font-semibold">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="bg-indigo-600 text-white p-4 flex justify-between items-center">
+                <h3 class="text-xl font-semibold">Create Account</h3>
+                <button id="closeRegisterModal" class="text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="input-group">
+                        <label for="firstName" class="text-gray-700">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter your first name">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="lastName" class="text-gray-700">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter your last name">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="registerEmail" class="text-gray-700">Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email">
+                </div>
+                
+                <div class="input-group">
+                    <label for="registerPassword" class="text-gray-700">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Create a password">
+                    <div class="password-strength">
+                        <div class="password-strength-fill" id="passwordStrength"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Use 8+ characters with a mix of letters, numbers & symbols</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirmPassword" class="text-gray-700">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                </div>
+                
+                <div class="flex items-center mb-6">
+                    <input type="checkbox" id="termsAgree" class="mr-2">
+                    <label for="termsAgree" class="text-gray-700">I agree to the <a href="#" class="text-indigo-600">Terms & Conditions</a></label>
+                </div>
+                
+                <button class="btn-primary w-full py-3">Create Account</button>
+                
+                <p class="text-center mt-6 text-gray-600">
+                    Already have an account? <a href="#" id="switchToLogin" class="text-indigo-600 font-semibold">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        });
+        
+        // Modal functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        loginBtn.addEventListener('click', function() {
+            loginModal.classList.add('active');
+        });
+        
+        registerBtn.addEventListener('click', function() {
+            registerModal.classList.add('active');
+        });
+        
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.classList.remove('active');
+        });
+        
+        closeRegisterModal.addEventListener('click', function() {
+            registerModal.classList.remove('active');
+        });
+        
+        switchToRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.classList.remove('active');
+            registerModal.classList.add('active');
+        });
+        
+        switchToLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.remove('active');
+            loginModal.classList.add('active');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+            if (e.target === registerModal) {
+                registerModal.classList.remove('active');
+            }
+        });
+        
+        // Password strength indicator
+        const passwordInput = document.getElementById('registerPassword');
+        const strengthBar = document.getElementById('passwordStrength');
+        
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 50) {
+                strengthBar.style.background = '#e74c3c';
+            } else if (strength < 100) {
+                strengthBar.style.background = '#f39c12';
+            } else {
+                strengthBar.style.background = '#2ecc71';
+            }
+        });
+        
+        // Simple form validation
+        document.querySelectorAll('.modal-content form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Form submission would be processed with backend functionality.');
+            });
+        });
+    </script>
+</body>
+</html>

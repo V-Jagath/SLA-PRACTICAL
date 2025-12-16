@@ -1,0 +1,118 @@
+.topic {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.search {
+    display: flex;
+
+}
+
+.search img {
+    width: 30px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.mic-img img {
+    width: 30px;
+}
+
+.mic-img {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+.search input {
+    border: solid;
+    width: 300px;
+    padding: 5px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.search button {
+    border: 20px;
+    padding: 7px;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.mic img {
+    width: 30px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.mic {
+    margin-right: 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.mic button {
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.category {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.category a {
+    text-decoration: none;
+    font-weight: 100;
+    color: black;
+}
+
+.category button {
+    background-color: rgb(241, 238, 241);
+    border-radius: 20px;
+    padding: 6px;
+}
+.mock img{
+    margin-left: 8px;
+    margin-top: 5px;
+    width: 320px;
+    border: solid black;
+}
+
+.content1 {
+    background-color: black;
+    color: white;
+    height: 300px;
+    width: 340px;
+    border-radius: 10px;
+}
+.coder-chennel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 5px;
+}
+
+.coder-chennel img{
+    width: 40px;
+    border-radius: 350px;
+}
+
+.coder-chennel a{
+    text-decoration: none;
+    color: white;
+}
+
+.mock-dis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

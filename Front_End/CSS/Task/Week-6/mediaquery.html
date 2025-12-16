@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        .Media {
+            background-color: blue;
+            color: white;
+            padding: 30px;
+            margin: 20px;
+            height: 20px;
+            display: flex;
+        }
+
+        @media(max-width:768px) {
+            .Media {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Media">
+        <p>This is a Media Query</p>
+    </div>
+</body>
+
+</html>

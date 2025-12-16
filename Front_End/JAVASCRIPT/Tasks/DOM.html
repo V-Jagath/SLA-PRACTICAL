@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+
+<body>
+
+    <h1 id="title" class="heading">What is DOM?</h1>
+    <input type="text" id="input_box"
+        style="padding: 5px;width: 300px; text-align: center; font-weight: bold;border-radius: 8px;">
+    <button id="btn" class="button1"
+        style="padding: 5px;width: 200px; text-align: center; font-weight: bold;border-radius: 8px;">Submit</button>
+    <p id="pera" class="peragraph">The DOM is the bridge between the frontend (HTML, CSS, Bootstrap) and JavaScript.
+        When a webpage loads, the browser creates a tree structure (object model) of all HTML elements.
+        Each HTML element is represented as a node in this tree.
+        JavaScript can access, modify, create, or remove these nodes dynamically using the DOM.
+        The DOM is not part of JavaScript. It is a Browser API that JavaScript uses.
+    </p>
+
+    <script>
+
+        const topic = document.getElementById("title")
+        const pera = document.getElementById("peragraph")
+        const btn = document.getElementById("btn")
+
+        // btn.addEventListener('click', (input) => {
+        //     input.preventDefault()
+        //     const input_data = document.getElementById("input_box").value
+        //     pera.innerText = "Input data is " + input_data
+        // })
+
+
+        // const head1 = document.getElementById("title")
+        // const peragraph = document.getElementById("pera")
+
+        // btn.addEventListener("click", () => {
+        //     head1.innerHTML = "DOM"
+        //     peragraph.innerHTML = "👉 Formula: HTML + Document (API) + JavaScript = Interactive Webpage"
+        // })
+
+        // const head1 = document.getElementById("title")
+        // const peragraph = document.getElementById("pera")
+        // btn.addEventListener("click", () => {
+        //     head1.innerHTML = "DOM PROCESS"
+        //     peragraph.innerHTML = "it is a dom process"
+        // })
+
+
+        // const topic = document.getElementsByClassName("heading")
+        // const content = document.getElementsByClassName("peragraph")
+        // const button1 = document.getElementById("btn");
+        // button1.addEventListener("click", () => {
+        //     topic[0].textContent = "DOM - ?"
+        //     content[0].textContent = "Document Object Model"
+        // })
+
+        // const topic = document.getElementsByClassName("heading")
+        // const content = document.getElementsByClassName("peragraph")
+        // const button = document.getElementById("btn")
+        // button.addEventListener("click", () => {
+        //     topic[0].innerText = "What is DOM ?"
+        //     content[0].innerText = "DOM is a Document Object Model"
+        //     if (content[0].style.display === "block") {
+        //         topic[0].style.color = "blue"
+        //     }
+        //     else {
+        //         content[0].style.color = "red"
+        //     }
+        // })
+
+        // const heading = document.getElementById("title")
+        // const content = document.getElementById("pera")
+        // // const button = document.getElementById("btn")
+        // btn.addEventListener("click", () => {
+        //     heading.innerHTML = "Its a DOM "
+        //     content.innerHTML = "DOM = Document Objet Model"
+        // })
+
+
+        // const title = document.getElementsByClassName("heading")
+        // const content = document.getElementsByClassName("peragraph")
+        // const button = document.getElementsByClassName("button1")
+        // button[0].addEventListener("click", () => {
+        //     title[0].innerText = "This is a Dom Model"
+        //     content[0].innerText = "DOM Stands For Document Object Model"
+        // })
+
+        // const title = document.getElementsByTagName("h1")
+        // const content = document.getElementsByTagName("p")
+        // const button = document.getElementsByTagName("button")
+        // button[0].addEventListener("click", () => {
+        //     title[0].innerHTML = "DOM"
+        //     title[0].style.color = "blue"
+        //     content[0].innerHTML = "DOCUMENT OBJCT MODEL"
+        //     content[0].style.color = "red"
+        //     if (title[0].style.color === "blue") {
+        //         title[0].style.display = "none"
+        //     }
+        //     else {
+        //         title[0].style.display = "block"
+        //     }
+        // })
+
+
+
+    </script>
+</body>
+
+</html>

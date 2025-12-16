@@ -1,0 +1,16 @@
+.topic h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    text-align: center;
+    color: whitesmoke;
+    width:auto;
+}
+
+.navbar a {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    width:auto;
+}

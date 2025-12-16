@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+</head>
+
+<body>
+    <script>
+        // 1. Print numbers from 1 to 10 using for loop.
+
+        var number = 10;
+        for (number = 1; number <= 10; number++) {
+            document.write(number + " ")
+        }
+
+        // 2. Print even numbers from 1 to 20 using for loop.
+
+        document.write("Even Numbers are  ")
+        for (var num = 1; num <= 20; num++) {
+            if (num % 2 === 0) {
+                document.write(num + "  ")
+            }
+        }
+
+        // 3.  Print multiplication table of 5 using for loop.
+
+        let n = 10;
+        let a = 5;
+        for (let b = 0; b <= n; b++) {
+            document.write(` 5 X ${b} = ${5 * b} `)
+        }
+
+        // 4. Find factorial of a given number using for loop
+
+        let no = 10;
+        let fact = 1;
+        for (let c = 1; c <= no; c++) {
+            fact = fact * c
+
+        }
+        document.write(`${no} Factorial value is : ${fact} `)
+
+        //  5. Calculate sum of first N natural numbers using for loop.
+
+        let d = 10;
+        let natural = 0;
+        for (let e = 1; e <= d; e++) {
+            natural = natural + e
+        }
+        document.write(`Sum of first ${10} Natrual Number value is : ${natural} `)
+
+
+        //  6. Print numbers from 10 down to 1 (reverse) using for loop.
+        for (let f = 10; f >= 0; f--) {
+            document.write(f + " ")
+        }
+
+        // 7. Print each character of a string using for loop.
+        let string = "jagath";
+
+        for (let g = 0; g < string.length; g++) {
+            document.write(string[g] + " ");
+        }
+
+
+        // 8. Check if a given number is prime using for loop.
+
+
+        // //  9. Generate first N Fibonacci numbers using for loop.
+        // let i = 10;
+        // let j = 0;
+        // let k = 1;
+        // document.write(j)
+        // for (let h = 1; h <= i; h++) {
+        //     j = j + k
+        //     k = k + h
+        //     document.write(k + " ")
+        // }
+
+        //  10. Check if a number is positive, negative, or zero using for loop and conditions
+
+        let m = 1;
+
+        for (let l = -4; l <= m; l++) {
+            document.write(m)
+            if (l < 0) {
+                document.write("its a Negative Number")
+            }
+            else if (l > 0) {
+                document.write("its a possitive Number")
+            }
+            else {
+                document.write("its Zero")
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

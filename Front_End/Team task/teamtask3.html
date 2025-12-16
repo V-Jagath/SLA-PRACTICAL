@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .login {
+            background-color: whitesmoke;
+            width: 500px;
+            height: 600px;
+            padding: 10px;
+            border: solid black;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login input {
+            border-radius: 8px;
+            padding: 7px;
+        }
+
+        .login button {
+
+            border-radius: 8px;
+            padding: 7px;
+        }
+
+        .submit input {
+            padding: 10px;
+            width: 80px;
+        }
+
+        .submit input[type="submit"]:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .submit input[type="reset"]:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .password a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        .register button:hover {
+            background-color: blue;
+            color: white;
+
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<main>
+
+    <body>
+        <div class="main">
+            <form action="">
+                <div class="login">
+                    <center>
+                        <img src="loginrbg.png" alt="login image">
+                        <br><br>
+                        <label for="">User Name : </label>
+                        <input type="text" placeholder="Enter Your User Name" required><br><br>
+                        <label for="">Password : </label>
+                        <input type="password" placeholder="Enter Your Password" required><br><br>
+                        <div class="password">
+                            <p>Don't remember your password : <a href="">Forget Password</a></p><br><br>
+                        </div>
+                        <div class="submit">
+                            <input type="submit" value="Login">
+                            <input type="reset" value="Clear">
+                        </div>
+                        <div class="register">
+                            <p>Don't have account please <a href="register.html"> <button> Register Here</button></a>
+                            </p>
+                        </div>
+                    </center>
+                </div>
+            </form>
+        </div>
+</main>
+</body>
+
+</html>

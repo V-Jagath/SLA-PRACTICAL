@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VJ Typing Institute - Fast Hands, Bright Minds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #9929EA;
+            --secondary: #FAEB92;
+            --dark: #000000;
+            --light: #F2F2F2;
+            --accent: #CC66DA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            color: var(--secondary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: var(--secondary);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Typing Test Section */
+        .typing-test {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .typing-test-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .typing-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .typing-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .typing-demo {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #sample-text {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        #typing-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        #typing-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            display: none;
+        }
+
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background-color: var(--dark);
+            color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .course-card p {
+            color: var(--accent);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .course-card .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .testimonial-nav button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .testimonial-nav button:hover {
+            background-color: var(--accent);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--secondary);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--dark);
+                width: 100%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s;
+                gap: 30px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 8px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -8px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .typing-test-content {
+                flex-direction: column;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>VJ Typing Institute</h1>
+                <p>Fast Hands, Bright Minds!</p>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#batches">Batch Details</a></li>
+                    <li><a href="#pricing">Fee Structure</a></li>
+                    <li><a href="#typing-tips">Typing Tips</a></li>
+                    <li><a href="#gallery">Events & Gallery</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Master Typing Skills for Success</h2>
+            <p>Join our professional typing courses and boost your career opportunities with speed and accuracy</p>
+            <a href="#courses" class="btn">Explore Courses</a>
+        </div>
+    </section>
+
+    <!-- Typing Test Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Test Your Typing Speed</h2>
+            <p>Check your current typing speed and see how you can improve</p>
+        </div>
+
+        <div class="typing-test">
+            <div class="typing-test-content">
+                <div class="typing-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Typing Image">
+                </div>
+                <div class="typing-demo">
+                    <p id="sample-text">Typing is the skill that improves with practice and accuracy. The more you type, the better you become. Start your journey to becoming a typing expert today!</p>
+                    <textarea id="typing-input" rows="4" placeholder="Start typing the text above here..."></textarea>
+                    <button id="check-speed" class="btn">Check My Speed</button>
+                    
+                    <div class="test-results" id="test-results">
+                        <h3>Your Results</h3>
+                        <p>Speed: <span id="wpm">0</span> WPM</p>
+                        <p>Accuracy: <span id="accuracy">0</span>%</p>
+                        <p>Time: <span id="time-taken">0</span> seconds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>The Importance of Typing</h2>
+        </div>
+        
+        <div class="content">
+            <p>In today's fast-moving digital world, typing is not just a skill — it's a necessity. From sending emails to preparing official documents, every profession demands speed and accuracy on the keyboard. Good typing skills save time, improve productivity, and open doors to better job opportunities.</p>
+            
+            <p>Whether you are a student preparing for competitive exams, a professional handling office tasks, or a freelancer working online, typing efficiently gives you an edge. It's not just about pressing keys — it's about communicating effectively in the digital age.</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="container" id="courses">
+        <div class="section-title">
+            <h2>Our Typing Courses</h2>
+            <p>Choose the course that fits your needs and goals</p>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>English Typing (Lower)</h3>
+                    <p><b>Duration:</b> 3 Months<br>Includes speed drills, finger exercises, and basic typing techniques</p>
+                    <a href="#register" class="btn">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>English Typing (Higher)</h3>
+                    <p><b>Duration:</b> 3 Months<br>Advanced typing techniques and speed practice for professional use</p>
+                    <a href="#register" class="btn">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>Tamil Typing (Lower)</h3>
+                    <p><b>Duration:</b> 3 Months<br>Includes Bamini/Phonetic keyboards and basic Tamil typing</p>
+                    <a href="#register" class="btn">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>Tamil Typing (Higher)</h3>
+                    <p><b>Duration:</b> 3 Months<br>Advanced Tamil typing techniques and speed practice</p>
+                    <a href="#register" class="btn">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>Advanced Typing + Govt Exam Practice</h3>
+                    <p><b>Duration:</b> 4 Months<br>Advanced typing techniques and custom modules for competitive exams</p>
+                    <a href="#register" class="btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Institute</h2>
+                <p>We provide the best training to help you succeed</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Trainers</h3>
+                    <p>Our certified trainers have years of experience in teaching typing skills</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Modern Equipment</h3>
+                    <p>Learn on modern computers and keyboards for the best experience</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certification</h3>
+                    <p>Get a recognized certificate upon course completion</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Job Placement</h3>
+                    <p>We assist our students in finding suitable job opportunities</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Timings</h3>
+                    <p>Choose from multiple batch timings that fit your schedule</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Affordable Fees</h3>
+                    <p>Quality training at reasonable prices with installment options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Student Success Stories</h2>
+            <p>Hear from our students who have achieved their goals</p>
+        </div>
+
+        <div class="testimonials-container">
+            <div class="testimonials" id="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"After joining the institute, I passed the SSC Typing Test and now I work as a Junior Assistant. The trainers were very supportive and the practice materials were extremely helpful."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Meena">
+                        </div>
+                        <div>
+                            <h4>Meena</h4>
+                            <p>Government Employee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The Tamil typing training was exactly what I needed to clear my TNPSC exam. The instructors helped me improve my speed and accuracy significantly. Thank you!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Suresh">
+                        </div>
+                        <div>
+                            <h4>Suresh</h4>
+                            <p>Typist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I enrolled in the English Higher course and within 3 months, my typing speed increased from 25 WPM to 55 WPM. The systematic approach and regular practice tests made all the difference."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priya">
+                        </div>
+                        <div>
+                            <h4>Priya</h4>
+                            <p>Data Entry Operator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-nav">
+                <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for any queries or enrollment</p>
+        </div>
+
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course Interested In</label>
+                    <select id="course" class="form-control" required>
+                        <option value="" selected disabled>Select a course</option>
+                        <option value="english-lower">English Typing (Lower)</option>
+                        <option value="english-higher">English Typing (Higher)</option>
+                        <option value="tamil-lower">Tamil Typing (Lower)</option>
+                        <option value="tamil-higher">Tamil Typing (Higher)</option>
+                        <option value="government">Advanced Typing + Govt Exam Practice</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Enter your message or query"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VJ Typing Institute</h3>
+                    <p>Fast Hands, Bright Minds! We provide quality typing training to help you achieve your career goals.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#batches">Batch Details</a></li>
+                        <li><a href="#pricing">Fee Structure</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> No. 25, Typing Street, Chennai, Tamil Nadu - 600001</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> vjtyping@example.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 VJ Typing Institute. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Typing Speed Test
+        const sampleText = document.getElementById('sample-text').innerText;
+        const typingInput = document.getElementById('typing-input');
+        const checkSpeedBtn = document.getElementById('check-speed');
+        const testResults = document.getElementById('test-results');
+        const wpmElement = document.getElementById('wpm');
+        const accuracyElement = document.getElementById('accuracy');
+        const timeTakenElement = document.getElementById('time-taken');
+        
+        let startTime, endTime;
+        
+        typingInput.addEventListener('focus', () => {
+            startTime = new Date();
+            testResults.style.display = 'none';
+        });
+        
+        checkSpeedBtn.addEventListener('click', () => {
+            if (!startTime) {
+                alert('Please start typing first!');
+                return;
+            }
+            
+            endTime = new Date();
+            const typedText = typingInput.value.trim();
+            const timeTaken = (endTime - startTime) / 1000; // in seconds
+            const words = typedText.split(/\s+/).length;
+            const wpm = Math.round((words / timeTaken) * 60);
+            
+            // Calculate accuracy
+            let correctChars = 0;
+            for (let i = 0; i < Math.min(typedText.length, sampleText.length); i++) {
+                if (typedText[i] === sampleText[i]) {
+                    correctChars++;
+                }
+            }
+            const accuracy = Math.round((correctChars / sampleText.length) * 100);
+            
+            // Display results
+            wpmElement.textContent = wpm;
+            accuracyElement.textContent = accuracy;
+            timeTakenElement.textContent = Math.round(timeTaken);
+            testResults.style.display = 'block';
+        });
+
+        // Testimonials Carousel
+        const testimonials = document.getElementById('testimonials');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial > 0) ? currentTestimonial - 1 : 2;
+            showTestimonial(currentTestimonial);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial < 2) ? currentTestimonial + 1 : 0;
+            showTestimonial(currentTestimonial);
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+
+</html>
