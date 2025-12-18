@@ -10,7 +10,7 @@ const Navbar = () => {
                 <Link to="/" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Home</Link>
                 <Link to="/intraction" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Intractions</Link>
                 <Link to="/state" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">State</Link>
-                <Link to="/day18Task" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Day18</Link>
+                <Link to="/task" className="bg-white text-black p-1 rounded-xl hover:bg-black hover:text-white">Tasks</Link>
             </div>
         </div>
     </>)
