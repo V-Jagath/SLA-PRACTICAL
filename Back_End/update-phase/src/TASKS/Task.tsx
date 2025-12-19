@@ -21,6 +21,10 @@ const Task = () => {
                 <Link to="/task/day19Task" className="p-2 rounded-2xl text-black font-bold bg-amber-300 ">Day 19</Link>
             </div>
 
+            <div className="flex flex-col w-40 gap-5">
+                <Link to="/task/day20Task" className="p-2 rounded-2xl text-black font-bold bg-amber-300 ">Day 20</Link>
+            </div>
+
         </div>
     </>)
 };

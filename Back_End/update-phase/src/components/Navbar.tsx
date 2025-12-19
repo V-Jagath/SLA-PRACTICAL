@@ -14,7 +14,11 @@ const Navbar = () => {
 
                 <NavLink to="/" className={({ isActive }) => isActive ? "bg-white text-black p-1 rounded" : "bg-black text-white p-1 rounded hover:bg-white hover:text-black"} end>Home</NavLink>
 
-                <NavLink to="/task" className={({ isActive }) => isActive ? "bg-white text-black p-1 rounded" : "bg-black text-white p-1 rounded hover:bg-white hover:text-black"} end>Tasks</NavLink>
+                <NavLink to="/task" className={({ isActive }) => isActive ? "bg-white text-black p-1 rounded" : "bg-black text-white p-1 rounded hover:bg-white hover:text-black"}>Tasks</NavLink>
+
+                <NavLink to="/register" className={({ isActive }) => isActive ? "bg-white text-black p-1 rounded" : "bg-black text-white p-1 rounded hover:bg-white hover:text-black"} >Rigister</NavLink>
+
+                <NavLink to="/login" className={({ isActive }) => isActive ? "bg-white text-black p-1 rounded" : "bg-black text-white p-1 rounded hover:bg-white hover:text-black"} >Login</NavLink>
 
             </div>
         </div >
