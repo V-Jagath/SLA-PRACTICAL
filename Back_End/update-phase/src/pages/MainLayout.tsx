@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Goback from "../components/Goback";
 
 const MainLayout = () => {
     return (<>
-        <Navbar />
-        <Outlet />
+        <div className="bg-gray-900">
+            <Navbar />
+            <Goback />
+            <Outlet />
+        </div>
     </>)
 };
 

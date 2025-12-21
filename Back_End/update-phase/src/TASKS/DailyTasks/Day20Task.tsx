@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Day20Task = () => {
@@ -37,9 +38,10 @@ const Day20Task = () => {
             </div>
 
             {/* <UseParams userData={user} /> */}
-            <div>
+
+            <div className="flex gap-5 flex-wrap">
                 {user.map((e) => (
-                    <div key={e.id} className="bg-blue-200 text-black p-5 flex flex-col border-2 flex-wrap gap-5 w-50">
+                    <div key={e.id} className="bg-blue-200 text-black p-5 w-50">
                         <h1>{e.name}</h1>
                         <h1>{e.age}</h1>
                         <h1>{e.dept}</h1>
@@ -47,10 +49,28 @@ const Day20Task = () => {
                     </div>
                 ))}
             </div>
+            <ExportProduct />
         </div >
     </>)
 };
 
 export default Day20Task;
 
+export const ExportProduct = () => {
 
+    const [product, setProduct] = useState([
+        { id: 1, productName: "Laptop", price: 40000, qty: 2 },
+        { id: 2, productName: "Mobile", price: 20000, qty: 3 },
+        { id: 3, productName: "Airpods", price: 25000, qty: 1 },
+        { id: 4, productName: "Headset", price: 30000, qty: 5 },
+    ]
+    );
+
+    return (<>
+        <div>
+            <div>
+                <Link to='/task/uselocation' state={{ getProduct: product }}>Export Product</Link>
+            </div>
+        </div>
+    </>)
+}
