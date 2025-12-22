@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UseLocation from "./TASKS/DailyTasks/UseLocation";
 import UseParams from "./TASKS/DailyTasks/UseParams";
+import Day21Class from "./TASKS/DailyTasks/Day21Class";
 
 const App = () => {
   return (<>
@@ -42,11 +43,16 @@ const App = () => {
           <Route path="/task/uselocation" element={<UseLocation />} />
           <Route path="/task/useparams" element={<UseParams />} />
           <Route path="/task/useparams/:id" element={<UseParams />} />
+
         </Route>
 
       </Routes>
 
     </main>
+    <footer>
+
+      <Day21Class />
+    </footer>
   </>)
 };
 
