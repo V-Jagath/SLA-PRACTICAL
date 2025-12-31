@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-const UseLocationNew = ({ userdata }: any) => {
+const UseLocationNew = ({ userdata }) => {
 
     const location = useLocation()
 

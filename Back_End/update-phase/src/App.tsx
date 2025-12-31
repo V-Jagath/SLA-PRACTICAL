@@ -19,6 +19,8 @@ import Day23Task from "./TASKS/DailyTasks/Day23Task";
 import Day24Task from "./TASKS/DailyTasks/Day24Task";
 import Day25Task from "./TASKS/DailyTasks/Day25Task";
 import Day26Task from "./TASKS/DailyTasks/Day26Task";
+import Day27Task from "./TASKS/DailyTasks/Day27Task";
+import UseLocationNew from "./TASKS/DailyTasks/UseLocationNew";
 
 const App = () => {
 
@@ -50,6 +52,8 @@ const App = () => {
           <Route path="/task/day24Task" element={<Day24Task />} />
           <Route path="/task/day25Task" element={<Day25Task />} />
           <Route path="/task/day26Task" element={<Day26Task />} />
+          <Route path="/task/day27Task" element={<Day27Task />} />
+          <Route path="/uselocationnew" element={<UseLocationNew />} />
 
         </Route>
       </Routes>

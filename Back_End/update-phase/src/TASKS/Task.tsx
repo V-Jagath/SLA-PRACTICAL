@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Task = () => {
 
@@ -9,7 +9,7 @@ const Task = () => {
 
     const TaskLink: tasktype[] = [
         { name: "Day18Task", link: "/task/day18Task" },
-        { name: "useParams", link: "./task/UseParams" },
+        { name: "useParams", link: "/task/useparams" },
         { name: "Day19Task", link: "/task/day19Task" },
         { name: "Day20Task", link: "/task/day20Task" },
         { name: "Day21Task", link: "/task/day21Task" },
@@ -18,13 +18,8 @@ const Task = () => {
         { name: "Day24Task", link: "/task/day24Task" },
         { name: "Day25Task", link: "/task/day25Task" },
         { name: "Day26Task", link: "/task/day26Task" },
+        { name: "Day27Task", link: "/task/day27Task" },
     ];
-
-    // const location = useLocation()
-
-    // const taskData = location.state.TaskLink
-
-    // console.log(taskData)
 
     return (<>
         <div className="bg-gray-800 text-white h-auto text-center flex flex-col items-center gap-10">

@@ -80,14 +80,7 @@ const Day26Task = () => {
 export default Day26Task;
 
 
-export const UseRef = () => {
 
-    const data = useRef("")
-
-    return (<>
-
-    </>)
-}
 
 
 
