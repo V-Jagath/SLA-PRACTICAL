@@ -3,11 +3,12 @@ import { useRef, useState } from "react";
 const Day27Task = () => {
 
     const [showbox, setShowbox] = useState(true)
-    const data = useRef<HTMLHeadingElement>(null);
-    const box = useRef<boolean>(true);
-    const inputValue = useRef<any>("");
 
-    // const [value, setVal] = useState()
+    const data = useRef<HTMLHeadingElement>(null);
+
+    const box = useRef<any>(true);
+
+    const inputValue = useRef<any>("");
 
     const handleClick = () => {
         if (data.current) {
@@ -16,6 +17,7 @@ const Day27Task = () => {
     }
 
     const hideBox = () => {
+
         box.current = !box.current
 
         setShowbox(box.current)
@@ -23,12 +25,12 @@ const Day27Task = () => {
     }
 
     const handleChange = () => {
-        console.log(inputValue.current)
+        setShowbox(inputValue.current.value)
     }
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(data.current)
+        console.log(inputValue.current.value)
     }
 
 
@@ -39,20 +41,21 @@ const Day27Task = () => {
         </div>
 
         <div className={showbox ? "bg-red-500 text-white p-5 w-50 h-50 text-center" : ""} >
-            <h1>This is a Box</h1>
+            <p>This is a Box</p>
         </div >
         <button onClick={hideBox}>{showbox ? "Hide Box" : "Show Box"}</button>
 
         <div>
             <form onSubmit={handleSubmit}>
                 <label>Name :</label>
-                <input type="text" name="name" onChange={handleChange} />
+                <input type="text" name="name" ref={inputValue} onChange={handleChange} />
                 <label>Email :</label>
-                <input type="text" name="email" onChange={handleChange} />
+                <input type="text" name="email" />
                 <label>Password:</label>
-                <input type="text" name="password" onChange={handleChange} />
+                <input type="text" name="password" />
                 <input type="submit" />
             </form>
+            <p>{showbox}</p>
         </div>
     </>)
 }
