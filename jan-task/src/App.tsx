@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import About from "./pages/About"
 import Layout from "./Layout"
 import Login from "./pages/Login"
 import Home from "./pages/Home"
+import Task from "./Task/Task"
+import Day1Task from "./Task/Day1Task"
 
 
 const App: React.FC = () => {
@@ -13,7 +14,8 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/task" element={<Task />} />
+          <Route path="/task/day1task" element={<Day1Task />} />
         </Route>
       </Routes>
     </>
