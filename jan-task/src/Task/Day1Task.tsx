@@ -1,6 +1,8 @@
-import { useEffect, useState, type FormEvent } from "react"
+import React, { useState, type FormEvent } from "react"
 import type { userData } from '../Typescript/Interface'
-import { userInfo } from "os"
+import type { profileData } from '../Typescript/Interface'
+
+
 const Day1Task: React.FC = () => {
 
     return (
@@ -9,6 +11,10 @@ const Day1Task: React.FC = () => {
             <Counter />
             <h1>2. Render users list using map()</h1>
             <RenderUser />
+            <h1>3. Toggle Login / Logout</h1>
+            <Toggle />
+            <h1>4. Update profile object (name, age)</h1>
+            <UpdateProfile />
         </>
     )
 }
@@ -54,25 +60,25 @@ export const Counter = () => {
 // 2 . Render users list using map()
 
 const RenderUser = () => {
+    const [user, setUser] = useState<userData>({ userName: "", age: "", email: "", mobile: "", password: "" })
 
-    const [user, setUser] = useState<userData>(
-        { userName: "", age: "", email: "", mobile: "", password: "" }
-    )
+    const getInputData = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
 
-    const getInputData = (e: any) => {
-        console.log(e.target.value)
+        setUser((pre: any) => ({ ...pre, [name]: value }))
     }
 
-
-    const getUserData = (e: any) => {
+    const getUserData = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+
     }
 
     return (<>
         <div>
             <form onSubmit={getUserData}>
                 <label>Name :</label>
-                <input type="text" onChange={getInputData} name="name" />
+                <input type="text" onChange={getInputData} name="userName" />
                 <label>Age :</label>
                 <input type="text" onChange={getInputData} name="age" />
                 <label>Email :</label>
@@ -83,9 +89,59 @@ const RenderUser = () => {
                 <input type="password" onChange={getInputData} name="password" />
                 <input type="submit" />
             </form>
-            <h1>{user.userName}</h1>
+            <div>
+                <h1>UserName :{user.userName}</h1>
+                <h1>Age :{user.age}</h1>
+                <h1>Email :{user.email}</h1>
+                <h1>Mobile :{user.mobile}</h1>
+                <h1>Password :{user.password}</h1>
+            </div>
+
         </div>
 
     </>)
 }
 
+// 3. Toggle Login / Logout
+
+export const Toggle = () => {
+    const [loginsts, setLoginsts] = useState<boolean>(false)
+
+    const handleClick = () => {
+        setLoginsts(!loginsts)
+    }
+
+    return (<>
+        <button onClick={handleClick} className={loginsts ? "bg-green-500 px-3 py-1 text-white rounded" : "bg-red-500 px-3 py-1 text-white rounded"}>{loginsts ? "Login" : "Logout"}</button >
+    </>)
+}
+
+// 4. Update profile object (name, age)
+
+export const UpdateProfile = () => {
+
+    const [profile, setProfile] = useState<profileData[]>([
+        { profileName: "", age: "" }
+    ])
+
+    const getDataInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        setProfile((newData: any) => ({ ...newData, [name]: value }))
+    }
+
+    const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        console.log(profile)
+    }
+
+    return (<>
+        <form onSubmit={submitForm}>
+            <label>Name :</label>
+            <input type="text" name="name" onChange={getDataInput} />
+            <label>Age :</label>
+            <input type="text" name="age" onChange={getDataInput} />
+            <input type="submit" value="Register" />
+        </form>
+    </>)
+}

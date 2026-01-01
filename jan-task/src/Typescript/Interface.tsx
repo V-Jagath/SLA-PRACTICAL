@@ -11,3 +11,8 @@ export interface userData {
     password: string | number,
 
 }
+
+export interface profileData {
+    profileName: string,
+    age: string
+}
