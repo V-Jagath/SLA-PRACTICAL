@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent } from "react"
+import React, { useState } from "react"
 import type { userData } from '../Typescript/Interface'
 import type { profileData, AdminData } from '../Typescript/Interface'
 
@@ -21,6 +21,8 @@ const Day1Task: React.FC = () => {
             <LikeBtn />
             <h1>7. Change background on click</h1>
             <ChangeBg />
+            <h1>8. Add / Remove item in array</h1>
+            <AddArray />
         </>
     )
 }
@@ -265,31 +267,11 @@ export const ChangeBg = () => {
     const getColor = (e: any) => {
         e.preventDefault()
         setBg(e.target.value)
-
         setShowBox(true)
-
-        if (bg === "red") {
-            <div className="bg-red-600">
-                <h1>This is a {bg} Color Box</h1>
-            </div >
-        } else if (bg === "blue") {
-            < div className="bg-blue-600" >
-                <h1>This is a {bg} Color Box</h1>
-            </div >
-        } else if (bg === "black") {
-            < div className="bg-black" >
-                <h1>This is a {bg} Color Box</h1>
-            </div >
-        } else {
-            < div className="bg-yellow-600" >
-                <h1>This is a {bg} Color Box</h1>
-            </div >
-        }
     }
 
 
     return (<>
-
         <form onSubmit={getColor}>
             <label>Choose a color</label>
             <select onClick={getColorValue} name="color">
@@ -302,8 +284,72 @@ export const ChangeBg = () => {
             </select>
             <input type="submit" value="Show Box" />
         </form>
+        {showBox && <>
+            {bg === "red" && <div className="bg-red-600 text-white p-5 w-50 h-50">Red Box</div>}
+            {bg === "blue" && <div className="bg-blue-600 text-white p-5 w-50 h-50">Blue Box</div>}
+            {bg === "yellow" && <div className="bg-yellow-600 text-white p-5 w-50 h-50">Yellow Box</div>}
+            {bg === "black" && <div className="bg-black text-white p-5 w-50 h-50">Black Box</div>}
+            {bg === "green" && <div className="bg-green-600 text-white p-5 w-50 h-50">Green Box</div>}
+        </>}
+    </>)
+}
+
+//8.Add / Remove item in array
+
+
+export const AddArray = () => {
+
+    const [product, setProduct] = useState(
+        { id: "", productName: "", price: "", qty: "" },
+    );
+
+    const [newProduct, setNewProduct] = useState<any[]>([])
+
+    const getProductInput = (e: any) => {
+        const { name, value } = e.target;
+
+        setProduct((product: any) => ({ ...product, [name]: value }))
+    }
+    const getProduct = (e: any) => {
+        e.preventDefault();
+
+        console.log(product)
+
+        setNewProduct((newProduct) => ([...newProduct, product]))
+
+        setProduct({ id: "", productName: "", price: "", qty: "" })
+    }
+
+    return (<>
+        <form onSubmit={getProduct}>
+            <div>
+                <label>Product Id :</label>
+                <input type="text" onChange={getProductInput} name="id" className="border" />
+            </div>
+            <div>
+                <label>Product Name :</label>
+                <input type="text" onChange={getProductInput} name="productName" className="border" />
+            </div>
+            <div>
+                <label>Product Price :</label>
+                <input type="text" onChange={getProductInput} name="price" className="border" />
+            </div>
+            <div>
+                <label>Product Qty :</label>
+                <input type="text" onChange={getProductInput} name="qty" className="border" />
+            </div>
+            <input type="submit" value="Add Product" />
+        </form>
         <div>
-            {showBox}
+            {newProduct.map((e: any, i: number) => (
+                <div key={i}>
+                    <h1>{e.id}</h1>
+                    <h1>{e.productName}</h1>
+                    <h1>{e.price}</h1>
+                    <h1>{e.qty}</h1>
+                </div>
+
+            ))}
         </div>
     </>)
 }
