@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { UserContext } from './UserContext';
 
-const ProvideContext = ({ Children }) => {
+const ProvideContext = ({ children }) => {
 
     const [data, setData] = useState({})
 
@@ -28,12 +29,12 @@ const ProvideContext = ({ Children }) => {
         console.log(finalData)
     }
 
-
+    const userName = "Jagath"
     return (
         <>
             <div>
-                <UserContext.Provider value={{ data, setData, getInputData, getLoginData }}>
-                    {Children}
+                <UserContext.Provider value={{ data, userName, setData, getInputData, getLoginData }}>
+                    {children}
                 </UserContext.Provider>
             </div>
         </>

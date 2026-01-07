@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const Form = () => {
-
+const LoginForm = () => {
 
     const { getInputData, getLoginData } = useContext(UserContext);
 
@@ -23,4 +22,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default LoginForm;

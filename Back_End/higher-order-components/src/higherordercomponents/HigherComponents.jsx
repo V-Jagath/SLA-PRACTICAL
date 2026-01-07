@@ -1,11 +1,13 @@
 import Button from "../components/Button";
 
 const HOCButton = Button
+
 const HigherComponents = () => {
 
     const NormalAlert = () => {
         alert("Normal Button Alert")
     }
+    
     const HOCAlert = () => {
         alert("It's HOC Button Alert")
     }
