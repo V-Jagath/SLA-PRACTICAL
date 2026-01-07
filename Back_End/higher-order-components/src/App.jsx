@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <HigherComponents />
-      
+
       <ProvideContext>
         <LoginForm />
       </ProvideContext>
