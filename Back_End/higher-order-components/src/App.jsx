@@ -5,6 +5,7 @@ import LoginForm from "./pages/LoginForm";
 import Navbar from "./components/Navbar";
 import Input from "./components/Input";
 import { useState } from "react";
+import UseMemo from "./pages/UseMemo";
 
 const HOCButton = withHoc(Button)
 
@@ -29,7 +30,7 @@ const App = () => {
       <HOCButton />
       <Input inputFun={getInput} />
       <HOCInput />
-
+      <UseMemo />
       <ProvideContext>
         <LoginForm />
       </ProvideContext>
