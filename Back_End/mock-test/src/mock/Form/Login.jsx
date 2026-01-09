@@ -15,6 +15,7 @@ const Login = () => {
     const getInput = (e) => {
         const { name, value } = e.target
         setData({ ...data, [name]: value })
+        console.log(data)
     }
 
     const getLoginData = (e) => {
@@ -22,14 +23,13 @@ const Login = () => {
 
         if (finalData.email === data.email && finalData.password === data.password) {
             alert("Successfully Login")
-
             if (finalData.role === "admin") {
                 navigate("/admin")
             } else {
                 navigate("/user")
             }
         } else {
-            alert("login fail")
+            alert("Check UserName and Password")
         }
 
     }

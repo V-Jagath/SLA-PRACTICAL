@@ -18,16 +18,17 @@ const Register = () => {
         console.log(data)
 
 
-        if (data.password < 6) {
+        if (data.password.length < 6) {
             alert("Password is mininum 6 Chracters")
-        } else {
 
+        } else if (data.role === "") {
+            alert("Please Select Anyone Role")
+        } else {
             localStorage.setItem("RegData", JSON.stringify(data))
             location("/login")
         }
 
     }
-
     return (
         <>
             <form onSubmit={getFormData}>
@@ -36,9 +37,9 @@ const Register = () => {
                 <label>Email:</label>
                 <input type="email" onChange={getInput} name="email" placeholder="Enter Your Email" />
                 <label>Password:</label>
-                <input type="password" onChange={getInput} name="password" placeholder="Enter Your Password" />
-                <select onChange={getInput} name="role">
-                    <option value="" disabled>select one</option>
+                <input type="current-password" onChange={getInput} name="password" placeholder="Enter Your Password" />
+                <select onChange={getInput} value="" name="role">
+                    <option value="" selected disabled>select one</option>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>
@@ -46,6 +47,6 @@ const Register = () => {
             </form>
         </>
     )
-}
 
+}
 export default Register;
