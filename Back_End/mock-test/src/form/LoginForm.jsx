@@ -1,31 +1,41 @@
 import { useNavigate } from 'react-router-dom'
 import useGetFormData from '../form/useGetFormData'
+import { useEffect, useState } from 'react'
 
 const LoginForm = () => {
 
     const navigate = useNavigate()
 
     const { getInputData, inputData } = useGetFormData()
+    const [localData, setLocalData] = useState(null)
 
-    const localdata = localStorage.getItem(JSON.parse("regFormData"))
+    const getFormData = (e) => {
+        e.preventDefault();
 
-    const getFormData = () => {
-        if (inputData.email !== localdata.email) {
-            alert("Email mismatch")
-        } else if (inputData.password !== localdata.password) {
-            alert("password mismatch")
-        } else {
-            navigate("/homefrompage")
+        setLocalData(JSON.parse(localStorage.getItem("regFormData")));
+
+        if (!localData) {
+            alert("No registered user data found!");
+            return;
         }
-    }
+
+        if (inputData.email !== localData.email) {
+            alert("Email mismatch");
+        } else if (inputData.password !== localData.password) {
+            alert("Password mismatch");
+        } else {
+            alert("Successfully Login")
+            navigate("/homefrompage");
+        }
+    };
 
     return (
         <>
             <form onSubmit={getFormData}>
                 <label>Email :</label>
-                <input type="email" onChange={getInputData} />
+                <input type="email" name="email" onChange={getInputData} />
                 <label>Password :</label>
-                <input type="password" onChange={getInputData} />
+                <input type="password" name='password' onChange={getInputData} />
                 <input type="submit" value="Login" />
             </form>
         </>
