@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Todo = () => {
 
@@ -6,29 +6,22 @@ const Todo = () => {
     const [input, setInput] = useState("")
 
     const getInputTask = (e) => {
-
         setInput(e.target.value)
         console.log(input)
-
     }
 
     const getTask = () => {
-
         const inputData = [...task, input]
-
         setTask(inputData)
-
-        console.log(inputData)
-
         localStorage.setItem("todoData", JSON.stringify(inputData))
-
-        // if (input) {
-        //     console.log("true")
-        //     setInput("")
-        //     setTask(localStorage.getItem(JSON.stringify("todoData")))
-        // }
     }
 
+    useEffect(() => {
+        const localData = JSON.parse(localStorage.getItem("todoData"))
+        localData.map((e, i) => {
+            <h1 key={i}>{e}</h1>
+        })
+    }, [task])
     return (
         <>
             <div>
@@ -36,9 +29,8 @@ const Todo = () => {
                 <input type="submit" onClick={getTask} />
             </div>
             <div>
-                {task.map((e, i) => (
-                    <p key={i}>{e}</p>
-                ))}
+                { }
+
             </div>
         </>
     )
