@@ -9,6 +9,7 @@ const Todo = () => {
 
         setInput(e.target.value)
         console.log(input)
+
     }
 
     const getTask = () => {
@@ -16,12 +17,16 @@ const Todo = () => {
         const inputData = [...task, input]
 
         setTask(inputData)
+
         console.log(inputData)
 
         localStorage.setItem("todoData", JSON.stringify(inputData))
 
-        setTask("")
-
+        // if (input) {
+        //     console.log("true")
+        //     setInput("")
+        //     setTask(localStorage.getItem(JSON.stringify("todoData")))
+        // }
     }
 
     return (
@@ -31,9 +36,9 @@ const Todo = () => {
                 <input type="submit" onClick={getTask} />
             </div>
             <div>
-                {/* {task.map((e, i) => (
+                {task.map((e, i) => (
                     <p key={i}>{e}</p>
-                ))} */}
+                ))}
             </div>
         </>
     )
