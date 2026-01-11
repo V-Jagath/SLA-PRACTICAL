@@ -1,9 +1,9 @@
-import Todo from "./Todo/Todo"
+import TodoApp from "./Todo/TodoApp";
 
 const App = () => {
   return (
     <>
-      <Todo />
+      <TodoApp />
     </>
   )
 }
