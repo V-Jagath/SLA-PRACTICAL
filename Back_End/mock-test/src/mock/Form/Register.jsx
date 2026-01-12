@@ -2,7 +2,9 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 const Register = () => {
+
     const location = useNavigate()
+
     const [data, setData] = useState({ name: "", email: "", role: "", password: "" })
 
     const getInput = (e) => {
