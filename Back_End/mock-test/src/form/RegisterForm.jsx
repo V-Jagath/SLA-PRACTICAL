@@ -10,22 +10,18 @@ const RegisterForm = () => {
 
 
     const getFormData = (e) => {
-        // e.preventDefault();
-        // if (inputData.mobile.length < 10) {
-        //     alert("Please Enter Vaild Mobile Number")
-        // } else if (inputData.password.length < 8) {
-        //     alert("Password is More than 8 Characters")
-        // } else if (inputData.password !== inputData.conpassword) {
-        //     alert("Please Check password and conform password is mismatch")
-        // } else {
-        //     alert("Sucessfully Data Registered")
-        //     navigate("/loginform")
-        //     localStorage.setItem("regFormData", JSON.stringify(inputData))
-        // }
         e.preventDefault();
-
-
-
+        if (inputData.mobile.length < 10) {
+            alert("Please Enter Vaild Mobile Number")
+        } else if (inputData.password.length < 8) {
+            alert("Password is More than 8 Characters")
+        } else if (inputData.password !== inputData.conpassword) {
+            alert("Please Check password and conform password is mismatch")
+        } else {
+            alert("Sucessfully Data Registered")
+            navigate("/loginform")
+            localStorage.setItem("regFormData", JSON.stringify(inputData))
+        }
     }
 
 

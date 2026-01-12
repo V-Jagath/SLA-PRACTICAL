@@ -70,16 +70,27 @@
 
 
     <!-- Responsive naviation bar -->
-    <nav>
-        <div id="navbar">
+    <nav id="navbar"
+        style="background-color: black;color:white;padding:10px;display: flex;justify-content: space-between;align-items: center;">
+        <!-- <div id="navbar">
             <h2>LOGO</h2>
             <div class=" links">
                 <a href="">Home</a>
                 <a href="">About</a>
                 <a href="">Contact</a>
             </div>
+        </div> -->
+
+        <div>
+            <h1>LOGO</h1>
+        </div>
+        <div style="display: flex;gap: 20px;">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>
     </nav>
+
     <button id="nav_btn" style="padding: 8px;background-color: black;color: white;">Hide Nav Bar</button>
     <!-- 
     <div id="card_head"
@@ -93,20 +104,34 @@
     </div> -->
     <script>
 
-        const nav1 = document.getElementById("navbar")
-        const atag = document.getElementById("links")
-        const navbtn = document.getElementById("nav_btn")
-        nav_btn.addEventListener('click', () => {
-            if (nav1.style.display === "flex") {
-                nav1.style.display = "none"
-                navbtn.innerHTML = "Show Nav bar"
+        const navbar = document.getElementById("navbar")
+        const navBtn = document.getElementById("nav_btn")
 
-            }
-            else {
-                nav1.style.display = "flex"
-                navbtn.innerHTML = "Hide Nav bar"
+        navBtn.addEventListener("click", () => {
+            if (navbar.style.display === "flex") {
+                navbar.style.display = "none"
+                navBtn.innerText = "Show Navbar"
+            } else {
+                navbar.style.display = "flex"
+                navBtn.innerText = "Hide NavBar"
             }
         })
+
+        
+        // const nav1 = document.getElementById("navbar")
+        // const atag = document.getElementById("links")
+        // const navbtn = document.getElementById("nav_btn")
+        // nav_btn.addEventListener('click', () => {
+        //     if (nav1.style.display === "flex") {
+        //         nav1.style.display = "none"
+        //         navbtn.innerHTML = "Show Nav bar"
+
+        //     }
+        //     else {
+        //         nav1.style.display = "flex"
+        //         navbtn.innerHTML = "Hide Nav bar"
+        //     }
+        // })
 
         // const cardhead = document.getElementById("card_head");
         // const cardbody = document.getElementById("card_body");

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Practice</title>
+</head>
+
+<body>
+
+    <form onsubmit=getFormData(event)>
+        <input type="text" onchange=getInputData(event)>
+        <input type="submit" value="getValue">
+    </form>
+    <p id="showVote"></p>
+
+    <!-- Counter -->
+
+    <div>
+        <h1 id="countVal">Counter</h1>
+        <button id="inc">Increment</button>
+        <button id="dec">Decrement</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <form>
+        <label>Name</label>
+        <input id="name" type="text">
+        <label>age</label>
+        <input id="age" type="text">
+        <input type="submit" id="addUser" value="addTask">
+    </form>
+
+    <script>
+        const addUser = document.getElementById("addUser")
+        const name = document.getElementById("name")
+        const age = document.getElementById("age")
+
+        addUser.addEventListener("click", () => {
+            const value = input.value.trim();
+
+        })
+
+        let count = 0
+        const inc = document.getElementById("inc")
+        const dec = document.getElementById("dec")
+        const reset = document.getElementById("reset")
+        const countVal = document.getElementById("countVal")
+
+        inc.addEventListener("click", () => {
+            count++
+            countVal.innerHTML = `Count Value ${count}`
+        })
+        dec.addEventListener("click", () => {
+            count--
+            countVal.innerHTML = `Count Value  ${count}`
+        })
+        reset.addEventListener("click", () => {
+            count = 0
+            countVal.innerHTML = `Count Value ${count}`
+        })
+
+
+        const showVote = document.getElementById("showVote")
+        let inputData = 0;
+
+        const getFormData = (e) => {
+            e.preventDefault();
+
+            if (inputValue > 18) {
+                showVote.innerText = "Eligible for vote"
+                showVote.style.color = "black"
+
+            } else {
+                showVote.innerText = "Not Eligible"
+                showVote.style.color = "red"
+            }
+
+        }
+
+        const getInputData = (e) => {
+            inputValue = Number(e.target.value)
+            console.log("currentValue", inputValue)
+        }
+
+        // 1. Polindrome
+
+        let a = "appa"
+        let newa = ""
+        for (let i = a.length - 1; i >= 0; i--) {
+            newa += a[i]
+        }
+
+        if (newa === a) {
+            console.log("palindrome")
+        } else {
+            console.log("Not a Polindrome")
+        }
+        console.log(newa)
+
+
+
+    </script>
+</body>
+
+</html>
