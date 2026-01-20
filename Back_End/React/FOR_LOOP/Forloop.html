@@ -1,0 +1,76 @@
+<script>
+    //  print 1 to 10
+    for (let i = 1; i <= 10; i++) {
+        console.log("Print 1 to 10", i)
+    }
+
+    //  Sum of natural numbers
+
+    let sum = 0;
+    for (let i = 1; i <= 20; i++) {
+        sum = sum + i
+    }
+    console.log(sum)
+
+    //  1 to 50 Even Numbers
+
+    for (let i = 1; i <= 50; i++) {
+        if (i % 2 === 0) {
+            console.log(i)
+        }
+    }
+
+    // Tables
+
+    let n = 8
+
+    for (let i = 1; i <= 10; i++) {
+        console.log(`${n} * ${i} = ${n * i}`)
+    }
+
+    // No of Digits
+
+    let number = "123456"
+    let count = 0
+    for (let i = 1; i <= number.length; i++) {
+        count = i
+    }
+
+    console.log(count)
+
+    //  5 Tables
+
+    for (let i = 1; i <= 10; i++) {
+        console.log(5 * i)
+    }
+
+    //  Reverse Number
+    for (let i = number.length - 1; i >= 0; i--) {
+        console.log(number[i])
+    }
+
+    // Prime or not
+
+    let num = 17
+    let isprime = true;
+
+    for (let i = 0; i < num; i++) {
+        if (num <= 1) {
+            isprime = false
+        } else {
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    isprime = false
+                    break;
+                }
+            }
+        }
+    }
+    if (isprime) {
+        console.log(`${num} Is Prime Number`)
+    } else {
+        console.log(`${num} Is Not Prime Number`)
+    }
+
+
+</script>
