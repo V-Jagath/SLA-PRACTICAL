@@ -5,4 +5,4 @@ const route = express.Router()
 
 route.post('/auth', userController)
 
-export default route
+export default route;
