@@ -18,9 +18,9 @@ const List = () => {
         console.log(formData)
     }
 
-    const getUserData = (e) => {
+    const getUserData = (e, i) => {
         e.preventDefault()
-        const newUser = { id: data.length + 1, ...formData }
+        const newUser = { id: i + 1, ...formData }
         setData([...data, newUser])
     }
 
@@ -39,7 +39,7 @@ const List = () => {
             <div>
                 {data.map((e) => (
                     <div key={e.id} style={{ background: "black", color: "white", padding: "10px", width: "200px", margin: "10px" }}>
-                        <p>Id :{e.id}</p>
+                        {/* <p>Id :{e.id}</p> */}
                         <p>Name :{e.name}</p>
                         <p>Age :{e.age}</p>
                     </div >
