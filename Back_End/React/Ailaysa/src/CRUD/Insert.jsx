@@ -32,6 +32,7 @@ const Insert = () => {
 
             setApiData(updateData)
             setEdit(null)
+
         } else {
             const newProduct = { id: apiData.length + 1, ...formData }
 
@@ -65,11 +66,11 @@ const Insert = () => {
 
             <form onSubmit={getFormData}>
                 <label>Title</label>
-                <input type="text" onChange={getInput} name='title' />
+                <input type="text" onChange={getInput} value={formData.title} name='title' />
                 <label>Price</label>
-                <input type="text" onChange={getInput} name='price' />
+                <input type="text" onChange={getInput} value={formData.price} name='price' />
                 <label>Category</label>
-                <input type="text" onChange={getInput} name='category' />
+                <input type="text" onChange={getInput} name='category' value={formData.category} />
                 <input type="submit" value="Add Product" />
             </form>
             {catgory.map((e, i) => (
@@ -83,7 +84,7 @@ const Insert = () => {
                     <p>Price : {e.price}</p>
                     <p>Category : {e.category}</p>
                     <button onClick={() => deleteItem(e.id)}>Delete</button>
-                    <button onClick={() => editItem(e.id)}>Edit</button>
+                    <button onClick={() => editItem(e)}>Edit</button>
                 </div>
             ))}
             <button onClick={showCategory}>Show Jwellary</button>

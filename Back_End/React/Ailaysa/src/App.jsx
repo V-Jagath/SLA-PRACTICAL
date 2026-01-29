@@ -4,11 +4,13 @@ import Login from './Login'
 import Home from './Home'
 import Products from './Products'
 import Insert from './CRUD/Insert'
+import Delete from './CRUD/Delete'
 
 const App = () => {
   return (
     <>
-      <Insert />
+      <Delete />
+      {/* <Insert /> */}
       <Routes>
         {/* <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
