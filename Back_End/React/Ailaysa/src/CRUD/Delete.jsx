@@ -25,6 +25,11 @@ const Delete = () => {
         e.preventDefault()
 
         if (edit) {
+            const updateData = apiData.map((item) => item.id === edit ? { ...item, ...formData } : item)
+
+            setApiData(updateData)
+            setEdit(null)
+            setFormData({ title: "", category: "", price: "" })
 
         } else {
             const newProduct = { id: apiData.length + 1, ...formData }
@@ -39,8 +44,8 @@ const Delete = () => {
     }
 
     const editData = (e) => {
-        const filterData = apiData.filter((item) => item.id === e.id)
-        setEdit(filterData)
+        setFormData({ title: e.title, price: e.price, category: e.category })
+        setEdit(e.id)
     }
 
 
@@ -50,9 +55,9 @@ const Delete = () => {
                 <label>title</label>
                 <input type="text" onChange={getInput} value={formData.title} name="title" />
                 <label>price</label>
-                <input type="text" onChange={getInput} value={formData.price} name="title" />
+                <input type="text" onChange={getInput} value={formData.price} name="price" />
                 <label>category</label>
-                <input type="text" onChange={getInput} value={formData.category} name="title" />
+                <input type="text" onChange={getInput} value={formData.category} name="category" />
                 <input type="submit" value="Add Product" />
             </form>
 
