@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     createdBy: { type: String, default: 'Admin' }
 }, { timestamp: true })
 
-
 const Users = mongoose.model('usersData', userSchema)
 
 export default Users
