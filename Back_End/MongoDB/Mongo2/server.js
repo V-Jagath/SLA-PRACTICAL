@@ -11,14 +11,10 @@ const PORT = process.env.PORT || 5000
 const app = express()
 
 app.use(cors())
-app.get("/datas", (req, res) => {
-    const datas1 = { name: "surya" }
-    console.log(datas1)
-})
 
 app.use(express.json())
 
-// DBCONNECT()
+DBCONNECT()
 
 app.use('/api/school', createStu)
 
