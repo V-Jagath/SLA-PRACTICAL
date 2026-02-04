@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 const Register = () => {
 
-    const [input, setInput] = useState({ name: "", gender: "", email: "", password: "", repassword: "" })
+    const [input, setInput] = useState({ name: "", email: "", password: "", repassword: "" })
 
     const navigate = useNavigate()
 
@@ -15,14 +15,14 @@ const Register = () => {
         const { name, value } = e.target
 
         setInput({ ...input, [name]: value })
-        console.log(input)
     }
 
-    const storeDb = async () => {
+    const storeDb = async (req, res) => {
 
         try {
-            await axios.post('http://localhost:5000/api/userData/userCreate', input)
-            alert(res.data.msg)
+            await axios.post('http://localhost:5000/api/userData/userCreate', input).then(
+                console.log("Data Created")
+            )
         } catch (error) {
             console.log('data not created ', error)
         }
