@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
     const [input, setInput] = useState({
         email: "",
         password: ""
     });
 
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const getInput = (e) => {
@@ -16,29 +16,7 @@ const Login = () => {
         setInput({ ...input, [name]: value });
     };
 
-    const checkDatabaseData = async () => {
-        try {
-            const res = await axios.post(
-                "http://localhost:5000/api/userData/checkUser",
-                input
-            );
-
-            console.log("Login Response:", res.data);
-
-            if (res.data.success) {
-                alert("Login Successful");
-                navigate("/home");
-            } else {
-                alert(res.data.message);
-            }
-
-        } catch (error) {
-            console.error(error);
-            alert(error.response?.data?.message || "Login Failed");
-        }
-    };
-
-    const getFormData = (e) => {
+    const getFormData = async (e) => {
         e.preventDefault();
 
         if (!input.email || !input.password) {
@@ -46,33 +24,58 @@ const Login = () => {
             return;
         }
 
-        checkDatabaseData();
+        try {
+            setLoading(true);
+
+            const res = await axios.post(
+                "http://localhost:5000/api/userData/checkUser",
+                input,
+                { headers: { "Content-Type": "application/json" } }
+            );
+
+            if (res.data.success) {
+                // ✅ STORE USER ID
+                localStorage.setItem("userId", res.data.user._id);
+
+                alert("Login Successful");
+                navigate("/home");
+            } else {
+                alert(res.data.message);
+            }
+
+        } catch (error) {
+            alert(error.response?.data?.message || "Login Failed");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
-        <>
-            <form onSubmit={getFormData}>
+        <div style={{ maxWidth: "400px", margin: "50px auto" }}>
+            <h2>Login</h2>
 
-                <label>Email:</label>
+            <form onSubmit={getFormData}>
+                <label>Email</label>
                 <input
                     type="email"
                     name="email"
+                    value={input.email}
                     onChange={getInput}
-                    required
                 />
 
-                <label>Password:</label>
+                <label>Password</label>
                 <input
                     type="password"
                     name="password"
+                    value={input.password}
                     onChange={getInput}
-                    required
                 />
 
-                <input type="submit" value="Login" />
-
+                <button type="submit" disabled={loading}>
+                    {loading ? "Logging in..." : "Login"}
+                </button>
             </form>
-        </>
+        </div>
     );
 };
 
